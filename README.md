@@ -1,5 +1,5 @@
 # Node + Express tasks
-
+#### When executing commands in command line always make sure you are in the right folder. Especially when running `git init`
 ### TOC:
 * [Week 1](week1.md)
    * GIT

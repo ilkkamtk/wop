@@ -17,7 +17,7 @@
     * [Metropolia VPN](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
     * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
 
-1. GIT
+1. [GIT](https://git-scm.com/about)
    * Study [GIT material](https://github.com/mattpe/git-intro/blob/master/git-basics.md)
      * You don't have to do the exercises (yet)
    * [What files to include in repo?](git.md)
@@ -35,5 +35,11 @@
          * git push
       
       Remember to make README.md and especially .gitignore _before_ first commit
+   * Create folder `week1` for the following exercises 
        
-1. [Node.js](node.md)
+1. [Node.js](https://nodejs.org/en/)
+   * Study the [material]((node.md)) and do the exercises
+
+1. [Express.js](https://expressjs.com/)
+   * Create `express` folder to `week1`
+   * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `express` folder

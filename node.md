@@ -12,7 +12,7 @@ node my-script.js
 ```
 
 ### Exercise
-Create a folder `week1a`. In the folder create file `script.js` that logs 'This is JavaScript' to console, and run it. 
+Create a folder `node` in `week1`. In the folder create file `script.js` that logs 'This is JavaScript' to console, and run it. 
 
 ## npm
 * npm (Node Package Manager) is the package manager for Node.js
@@ -123,6 +123,6 @@ npm start
 npm run start
 ```
 ### Exercise
-* Initialize new project (still in `week1a` folder) 
+* Initialize new project (still in `node` folder) 
 * Install lodash as dependency
 * Create a custom npm script `start` to `package.json`. The npm script should start `script.js` with `nodemon`. Run the script with `npm start`
