@@ -117,10 +117,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-.idea/.gitignore
-.idea/codeStyles/
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/wop.iml
+.idea
