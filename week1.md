@@ -36,4 +36,4 @@
       
       Remember to make README.md and especially .gitignore _before_ first commit
        
-1. [NodeJS](node.md)
+1. [Node.js](node.md)
