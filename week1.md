@@ -41,5 +41,5 @@
    * Study the [material]((node.md)) and do the exercises
 
 1. [Express.js](https://expressjs.com/)
-   * Create `express` folder to `week1`
+   * Create `server-one` folder to `week1`
    * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `express` folder
