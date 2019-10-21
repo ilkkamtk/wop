@@ -56,10 +56,10 @@
      res.json(cat);
    });
    ```
-   * test in browser: `localhost:8000`
+   * test in browser: `localhost:3000`
    
 1. [Pug](https://expressjs.com/en/guide/using-template-engines.html)
    * Duplicate `server-one` folder and rename it to `server-two`
    * Create `views` folder to `server-two`
    * Make a [pug](https://pugjs.org/api/getting-started.html) template which generates the same HTML as index.html. Rename index.html to index_old.html
-   * test in browser: `localhost:8000`
+   * test in browser: `localhost:3000`
