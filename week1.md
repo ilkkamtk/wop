@@ -42,4 +42,24 @@
 
 1. [Express.js](https://expressjs.com/)
    * Create `server-one` folder to `week1`
-   * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `express` folder
+   * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `server-one` folder
+   * Add `public` folder to `server-one` and copy the content of this zip there.
+   * Serve the [static content](https://expressjs.com/en/starter/static-files.html) of `public` folder
+   * Add endpoint 'catinfo' to app.js: 
+   ```javascript
+   app.get('/catinfo', (req, res) => {
+     const cat = {
+       'name': 'Frank',
+       'age': 6,
+       'weight': 5,
+     };
+     res.json(cat);
+   });
+   ```
+   * test in browser: `localhost:8000`
+   
+1. [Pug](https://expressjs.com/en/guide/using-template-engines.html)
+   * Duplicate `server-one` folder and rename it to `server-two`
+   * Create `views` folder to `server-two`
+   * Make a [pug](https://pugjs.org/api/getting-started.html) template which generates the same HTML as index.html. Rename index.html to index_old.html
+   * test in browser: `localhost:8000`
