@@ -43,7 +43,7 @@
 1. [Express.js](https://expressjs.com/)
    * Create `server-one` folder to `week1`
    * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `server-one` folder
-   * Add `public` folder to `server-one` and copy the content of this zip there.
+   * Add `public` folder to `server-one` and copy the content of this [zip](public.zip) there.
    * Serve the [static content](https://expressjs.com/en/starter/static-files.html) of `public` folder
    * Add endpoint 'catinfo' to app.js: 
    ```javascript
