@@ -6,7 +6,6 @@
    * NPM
    * Express intro
 * [Week 2](week2.md)
-   * Serve static files
    * Routing
    * Middleware
    * Database connection
