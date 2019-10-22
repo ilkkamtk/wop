@@ -17,6 +17,7 @@
     * [Metropolia VPN](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
     * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
 
+1. [Command line intro](https://guide.freecodecamp.org/linux/the-command-prompt/)
 1. [GIT](https://git-scm.com/about)
    * Study [GIT material](https://github.com/mattpe/git-intro/blob/master/git-basics.md)
      * You don't have to do the exercises (yet)
