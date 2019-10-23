@@ -39,7 +39,7 @@
    * Create folder `week1` for the following exercises 
        
 1. [Node.js](https://nodejs.org/en/)
-   * Study the [material]((node.md)) and do the exercises
+   * Study the [material](node.md) and do the exercises
 
 1. [Express.js](https://expressjs.com/)
    * Create `server-one` folder to `week1`
