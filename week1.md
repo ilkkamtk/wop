@@ -43,6 +43,8 @@
 
 1. [Express.js](https://expressjs.com/)
    * Create `server-one` folder to `week1`
+   * Create package.json (`npm init`) in `server-one` folder
+   * Install express `npm install express --save`
    * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `server-one` folder
    * Add `public` folder to `server-one` and copy the content of this [zip](public.zip) there.
    * Serve the [static content](https://expressjs.com/en/starter/static-files.html) of `public` folder
