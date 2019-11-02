@@ -6,7 +6,7 @@
    * Create `week2` folder to your course folder: `mkdir week2`
    * Create `routing` folder to `week2` folder
    * [Download starter files as zip](https://github.com/ilkkamtk/wop-starters/tree/week2-1), extract and copy all files and folders to `week2` folder
-   * Move `week2_public_html` folder to your public_html in shell.metropolia.fi or in your virtual computer. You can rename the folder if you want.
+   * Move `week2_public_html` folder to your public_html in shell.metropolia.fi or in your virtual computer. You can rename the folder if you want. (This folder is needed later.)
    * Run `npm install` in `week2` folder
    * Run `nodemon app.js` or `node app.js` and test in browser: `localhost:3000/cat`
 1. Study [Routing](https://expressjs.com/en/guide/routing.html) and [app.METHOD](https://expressjs.com/en/4x/api.html#app.METHOD)
@@ -23,4 +23,5 @@
    * Move `cat` routes from `app.js` to `./routes/catRouter.js`
    * Test the routes with [Postman](https://www.getpostman.com/)
    * `./routes/catRouter.js` is a [module](https://stackify.com/node-js-module-exports/)
-   * Read this article about [design patterns](https://medium.com/code-to-express/tricky-design-patterns-in-javascript-part-1-ad7228d8db4d)
+   * _Optional:_ Read this article about [design patterns](https://medium.com/code-to-express/tricky-design-patterns-in-javascript-part-1-ad7228d8db4d)
+1. 
