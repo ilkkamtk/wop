@@ -18,7 +18,7 @@
 1. Study [route parameters](https://expressjs.com/en/guide/routing.html#route-parameters)
    * Use [Path variable](https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d) to get a cat with a specific id from `./models/catModel.js`
      * Add new route `cat/:id` which responds to GET method
-     * If the request is `cat/3`, the response should be `You reqested a cat who's id is 3`
+     * If the request is `cat/3`, the response should be `You reqested a cat whos id is 3`
 1. Study [Router](https://expressjs.com/en/guide/routing.html#express-router) and create a route handler for `cat` path. 
    * Move `cat` routes from `app.js` to `./routes/catRouter.js`
    * Test the routes with [Postman](https://www.getpostman.com/)
