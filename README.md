@@ -6,8 +6,8 @@
    * NPM
    * Express intro
 * [Week 2](week2.md)
-   * Routing
    * REST
+   * Routing
    * Middleware
    * Database connection, create, read
 * [Week 3](week3.md)
