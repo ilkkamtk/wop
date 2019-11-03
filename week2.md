@@ -19,7 +19,7 @@
 1. Study [route parameters](https://expressjs.com/en/guide/routing.html#route-parameters)
    * Use [Path variable](https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d) to get a cat with a specific id from `./models/catModel.js`
      * Add new route `cat/:id` which responds to GET method
-     * If the request is `cat/3`, the response should be `You reqested a cat whos id is 3`
+     * If the request is `cat/3`, the response should be `You reqested a cat whose id is 3`
 1. Study [Router](https://expressjs.com/en/guide/routing.html#express-router) and create a route handler for `cat` path. 
    * Move `cat` routes from `app.js` to `./routes/catRouter.js`
    * Test the routes with [Postman](https://www.getpostman.com/)
@@ -80,5 +80,9 @@
    module.exports = router;
    ```
    * Modify `./controllers/catController.js` and `/` route in `./routes/catRoutes.js` by using the examples above.
-   * `localhost:3000/cat` should now send an array of cats as response.
-1. 
+   * `localhost:3000/cat` should now send a json formatted array of cats as the response. Test with Postman.
+1. Study [map, reduce, filter](https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/)
+   * `/:id` route in `./routes/catRoutes.js` defines which cat's data should be returned. The `id` path variable should be passed from routes to controller:
+      * Add a new function `cat_get` to `./controllers/catController.js`. The function should send one cat defined with path variable as json formatted object.
+      * You can use _array.filter_ or _array.reduce_ to return one cat whose id property matches to `req.params.id`.
+   * `localhost:3000/cat/1` should now send a single cat as the response. Test with Postman.
