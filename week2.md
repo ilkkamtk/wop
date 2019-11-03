@@ -78,5 +78,6 @@
    
    module.exports = router;
    ```
-   * Modify `./controllers/catController.js` and `/` route in `./routes/catRoutes.js` by using the above examples.
+   * Modify `./controllers/catController.js` and `/` route in `./routes/catRoutes.js` by using the examples above.
    * `localhost:3000/cat` should now send an array of cats as response.
+1. 
