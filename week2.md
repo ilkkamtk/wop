@@ -210,6 +210,7 @@
       * In the server code:
          * save the file with multer to `uploads` folder (this is already done earlier)
          * _next_ save name, age, weight, owner and [filename](https://github.com/expressjs/multer#file-information) to database. Modify model, controller and route the same way as in adding a new user.
+         * Hint: You can add the filename to req.body
       * Testing:
          * Fill the form and send, check phpMyAdmin
          * Reload `index.html`
