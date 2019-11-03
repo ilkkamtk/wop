@@ -111,6 +111,9 @@
 1. Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middelware like [Multer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 
    * Add another form to `index.html` for uploading file
    * Add `uploads` folder to `week2` and use the 'Basic usage example' in Multer's documentation as an example and add file upload functionality to `./routes/catRoutes.js`. Use `/` for POST method as route.
+   * Check `uploads` folder after uploading to see new files. 
+      * Filenames are automatically hashed.
+      * If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
 
 1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://enable-cors.org/server_expressjs.html). 
    * Test that `index.html` works when you run it from public_html
