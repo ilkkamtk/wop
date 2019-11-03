@@ -2,8 +2,8 @@
 ## Routing
 1. Setup
    * Navigate to your course folder in terminal or Git Bash
-   * Create new Git branch. `git checkout -b week2-1`
    * Create `week2` folder to your course folder: `mkdir week2`
+   * Start new git repositoryto `week2` folder
    * Add approriate `.gitignore to `week2` folder` and commit changes to code regularly
    * Create `routing` folder to `week2` folder
    * [Download starter files as zip](https://github.com/ilkkamtk/wop-starters/tree/week2-1), extract and copy all files and folders to `week2` folder
@@ -121,7 +121,7 @@
 1. Add all files to git, commit and push
    
 ## Database connection
-1. Create new Git branch. `git checkout -b week2-2`
+1. Create new Git branch. `git checkout -b database`
 1. Goal of this task is to modify the models so that the data comes from database instead of hard coded arrays.
 1. Run the SQL from `tables.txt` in your database (phpMyAdmin in your virtual computer or [users.metropolia.fi/phpMyAdmin](http://users.metropolia.fi/phpMyAdmin))
 1. Study [Node MySQL 2](https://github.com/sidorares/node-mysql2#readme)
