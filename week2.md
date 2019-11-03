@@ -2,7 +2,7 @@
 ## Routing
 1. Setup
    * Navigate to your course folder in terminal or Git Bash
-   * Create new Git branch. `git checkout -b week2`
+   * Create new Git branch. `git checkout -b week2-1`
    * Create `week2` folder to your course folder: `mkdir week2`
    * Add approriate `.gitignore to `week2` folder` and commit changes to code regularly
    * Create `routing` folder to `week2` folder
@@ -110,5 +110,37 @@
    * Add another form to `index.html` for uploading file
    * Add `uploads` folder to `week2` and use the 'Basic usage example' in Multer's documentation as an example and add file upload functionality to `./routes/catRoutes.js`. Use `/` for POST method as route.
 1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://enable-cors.org/server_expressjs.html). 
+   * Test that `index.html` works when you run it from public_html
+1. Add all files to git, commit and push
+   
+## Database connection
+1. Create new Git branch. `git checkout -b week2-2`
+1. Goal of this task is to modify the models so that the data comes from database instead of hard coded arrays.
+1. Study [Node MySQL 2](https://github.com/sidorares/node-mysql2#readme)
+    * install Node MySQL 2 as a dependency
+    * also install [dotenv](https://github.com/motdotla/dotenv#readme) as a dependency
+       * this is used to store sensitive data such as database username and password so that they won't be pushed to GitHub etc.
+       * follow the instructions to create `.env` file
+1. Add new folder `database` and add there a new file `db.js`
+   ```javascript
+   'use strict';
+   const mysql = require('mysql2');
+   require('dotenv').config();
+      
+   const pool = mysql.createPool({
+     host: process.env.DB_HOST,
+     user: process.env.DB_USER,
+     password: process.env.DB_PASS,
+     database: process.env.DB_USER,
+     waitForConnections: true,
+     connectionLimit: 10,
+     queueLimit: 0,
+   });
+   
+   module.exports = pool;
+   ```
+
+
+
 
 
