@@ -24,4 +24,59 @@
    * Test the routes with [Postman](https://www.getpostman.com/)
    * `./routes/catRouter.js` is a [module](https://stackify.com/node-js-module-exports/)
    * _Optional:_ Read this article about [design patterns](https://medium.com/code-to-express/tricky-design-patterns-in-javascript-part-1-ad7228d8db4d)
-1. 
+1. Study [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+   * Here is an example of MVC in express:
+   ```javascript
+   // Model (usually gets data from database, in this case data is hard coded)
+   'use strict';
+   const cats = [
+     {
+       id: '1',
+       name: 'Frank',
+       age: '6',
+       weight: '5',
+       owner: '1',
+       filename: 'http://placekitten.com/400/300',
+     },
+     {
+       id: '2',
+       name: 'James',
+       age: '4',
+       weight: '11',
+       owner: '2',
+       filename: 'http://placekitten.com/400/302',
+     },
+   ];
+   
+   module.exports = {
+     cats,
+   };
+   ```
+   ```javascript
+   // Controller
+   'use strict';
+   const catModel = require('../models/catModel');
+   
+   const cats = catModel.cats;
+   
+   const cat_list_get = (req, res) => {
+     res.json(cats);
+   };
+      
+   module.exports = {
+     cat_list_get,
+   };
+   ```
+   ```javascript
+   // Router
+   'use strict';
+   const express = require('express');
+   const router = express.Router();
+   const catController = require('../controllers/catController');
+   
+   router.get('/', catController.cat_list_get);
+   
+   module.exports = router;
+   ```
+   * Modify `./controllers/catController.js` and `/` route in `./routes/catRoutes.js` by using the above examples.
+   * `localhost:3000/cat` should now send an array of cats as response.
