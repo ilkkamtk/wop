@@ -8,8 +8,9 @@
 * [Week 2](week2.md)
    * Routing
    * Middleware
-   * Database connection
+   * Database connection, create, read
 * [Week 3](week3.md)
+   * Database update, delete   
    * Cookies
    * Session
    * Authentication
