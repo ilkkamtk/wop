@@ -103,30 +103,38 @@
   
 ## Middleware
 1. Study [writing middleware](https://expressjs.com/en/guide/writing-middleware.html) and [using middleware](https://expressjs.com/en/guide/using-middleware.html)
+
 1. Study [req.body](https://expressjs.com/en/4x/api.html#req.body) on receiving and using data sent by e.g. form
    * `index.html` contains a form that sends userdata with POST method to `http://localhost:3000/user` endpoint.
    * Modify `/` route for post method in `./routes/userRoutes.js`. The route should log the user data sent by the form to the console. Test with Postman and with the form in `index.html`
+
 1. Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middelware like [Multer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 
    * Add another form to `index.html` for uploading file
    * Add `uploads` folder to `week2` and use the 'Basic usage example' in Multer's documentation as an example and add file upload functionality to `./routes/catRoutes.js`. Use `/` for POST method as route.
+
 1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://enable-cors.org/server_expressjs.html). 
    * Test that `index.html` works when you run it from public_html
+
 1. Add all files to git, commit and push
    
 ## Database connection
 1. Create new Git branch. `git checkout -b week2-2`
 1. Goal of this task is to modify the models so that the data comes from database instead of hard coded arrays.
+1. Run the SQL from `tables.txt` in your database (phpMyAdmin in your virtual computer or [users.metropolia.fi/phpMyAdmin](http://users.metropolia.fi/phpMyAdmin))
 1. Study [Node MySQL 2](https://github.com/sidorares/node-mysql2#readme)
     * install Node MySQL 2 as a dependency
     * also install [dotenv](https://github.com/motdotla/dotenv#readme) as a dependency
        * this is used to store sensitive data such as database username and password so that they won't be pushed to GitHub etc.
        * follow the instructions to create `.env` file
+       * for virtual computer host is localhost or the ip-address
+       * for metropolia's database host is mysql.metropolia.fi
 1. Add new folder `database` and add there a new file `db.js`
+   * Instead of connection we use [connection pool](https://github.com/sidorares/node-mysql2#using-connection-pools):
    ```javascript
    'use strict';
    const mysql = require('mysql2');
    require('dotenv').config();
-      
+   
    const pool = mysql.createPool({
      host: process.env.DB_HOST,
      user: process.env.DB_USER,
@@ -139,6 +147,71 @@
    
    module.exports = pool;
    ```
+   * Example query in a model using a [promise](https://github.com/sidorares/node-mysql2#using-promise-wrapper):
+   ```javascript
+   // ./models/catModel.js
+   'use strict';
+   const pool = require('../database/db');
+   const promisePool = pool.promise();
+   
+   const getAllCats = async () => {
+     try {
+       const [rows] = await promisePool.query('SELECT * FROM wop_cat');
+       return rows;
+     } catch (e) {
+       console.log('error', e.message);
+     }   
+   };
+   
+   module.exports = {
+     getAllCats,
+   };
+   ```
+   * Use getAllCats() in controller:
+   ```javascript
+   // ./controllers/catController.js
+   ...
+   const cat_list_get = async (req, res) => {
+     const cats = await catModel.getAllCats();
+     res.json(cats);
+   };
+   ...
+   ```
+   * More on [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+ 
+1. [Prepared statements](https://github.com/sidorares/node-mysql2#using-prepared-statements)
+   * Create a function getCat to `./models/catModel.js`
+   * The function should make a prepared statement which executes this query: `SELECT * FROM wop_cat WHERE cat_id = X`
+      * X is the path variable from route `/:id` of `./routes/catRoute.js`
+   * Modify cat_get function in `./controllers/catController.js` so that it sends the path variable 'id' to getCat function of `./models/catModel.js` and then sends the data of single cat as json. Use cat_list_get function as an example. 
+
+1. Make user route to use database as well
+   * Use cat model, router and controller as an example and modify user routes etc.
+   * Add all the same features as in cat route:
+      * localhost:3000/user lists all users
+      * localhost:3000/user/1 returns one user by id.
+      * _extra:_ delete password poperty from user's data before sending.
+
+1. Use the routes for POST method to add users and cats to database
+   * Saving data to a database is mostly the same JavaScript as selecting data from a database. The difference is in the SQL query. Instead of SELECT use INSERT.
+   * Adding a new user:
+      * use the Add user form in `index.html`
+      * add a new function addUser to `./models/userModel.js`
+         * the function should add user to the database
+      * add a new function user_create_post to `./controllers/userController.js`
+         * the function should receive req.body and send it to addUser function of `./models/userModel.js`
+      * modify `/` route for POST method in `./routes/userRoute.js` to call user_create_post function
+      * fill the Add user form in `index.html`, send the form and check in phpMyAdmin whether a new user has been added.
+   * Adding a new cat
+      * Modify the file upload form you did earlier in `index.html`. Add text inputs for name, age, weight and owner
+      * In the server code:
+         * save the file with multer to `uploads` folder (this is already done earlier)
+         * _next_ save name, age, weight, owner and [filename](https://github.com/expressjs/multer#file-information) to database. Modify model, controller and route the same way as in adding a new user.
+      * Testing:
+         * Fill the form and send, check phpMyAdmin
+         * Reload `index.html`
+   * Commit changes and push to GitHub
+
 
 
 
