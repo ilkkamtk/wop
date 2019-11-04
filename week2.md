@@ -115,7 +115,7 @@
       * Filenames are automatically hashed.
       * If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
 
-1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://enable-cors.org/server_expressjs.html). 
+1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://expressjs.com/en/resources/middleware/cors.html). 
    * Test that `index.html` works when you run it from public_html
 
 1. Add all files to git, commit and push
