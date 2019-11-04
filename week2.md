@@ -5,7 +5,6 @@
    * Create `week2` folder to your course folder: `mkdir week2`
    * Start new git repositoryto `week2` folder
    * Add approriate `.gitignore to `week2` folder` and commit changes to code regularly
-   * Create `routing` folder to `week2` folder
    * [Download starter files as zip](https://github.com/ilkkamtk/wop-starters/tree/week2-1), extract and copy all files and folders to `week2` folder
    * Move `week2_public_html` folder to your public_html in shell.metropolia.fi or in your virtual computer. You can rename the folder if you want. (This folder is needed later.)
    * Run `npm install` in `week2` folder
