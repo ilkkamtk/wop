@@ -98,25 +98,24 @@
       * `localhost:3000/user/1` returns one user by id.
       * _extra:_ delete password poperty from user's data before sending.
   * Test with Postman.
-  * Also now `./week2_public_html/index.html` should work when you open it locally.
   
 ## Middleware
 1. Study [writing middleware](https://expressjs.com/en/guide/writing-middleware.html) and [using middleware](https://expressjs.com/en/guide/using-middleware.html)
+
+1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://expressjs.com/en/resources/middleware/cors.html). 
+   * Test that `index.html` works when you run it locally and from public_html
 
 1. Study [req.body](https://expressjs.com/en/4x/api.html#req.body) on receiving and using data sent by e.g. form
    * `index.html` contains a form that sends userdata with POST method to `http://localhost:3000/user` endpoint.
    * Modify `/` route for post method in `./routes/userRoutes.js`. The route should log the user data sent by the form to the console. Test with Postman and with the form in `index.html`
 
-1. Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middelware like [Multer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 
+1. Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middelware like [Multer](https://github.com/expressjs/multer) 
    * Add another form to `index.html` for uploading file
    * Add `uploads` folder to `week2` and use the 'Basic usage example' in Multer's documentation as an example and add file upload functionality to `./routes/catRoutes.js`. Use `/` for POST method as route.
    * Check `uploads` folder after uploading to see new files. 
       * Filenames are automatically hashed.
       * If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
-
-1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://expressjs.com/en/resources/middleware/cors.html). 
-   * Test that `index.html` works when you run it from public_html
-
+      
 1. Add all files to git, commit and push
    
 ## Database connection
@@ -141,7 +140,7 @@
      host: process.env.DB_HOST,
      user: process.env.DB_USER,
      password: process.env.DB_PASS,
-     database: process.env.DB_USER,
+     database: process.env.DB_NAME,
      waitForConnections: true,
      connectionLimit: 10,
      queueLimit: 0,
