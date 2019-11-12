@@ -48,5 +48,35 @@
    * Navigate to your course folder in terminal or Git Bash
       * Create `state-management` folder to your course folder.
       * Start new git repository to `state-management` folder: `cd state-management`, `git init` etc...
-      * Add approriate `.gitignore` to `state-management` folder and commit changes to code regularly
-1. 
+      * [Download starter files as zip](https://github.com/ilkkamtk/wop-starters/tree/state-management), extract and copy all files to `state-management` folder
+      * Run `npm install` and `nodemon app.js` to test `localhost:3000`
+      * Commit changes to code regularly
+
+1. Cookies
+   * Create the following routes for GET method:
+      * `/setCookie`
+         * recieves a path variable `clr`
+         * sets a new cookie `color` which gets the value of `clr` path variable
+      * `/deleteCookie`
+         * delete `color` cookie
+   * Open 'Application' tab in Developer Tools to see cookies in browser
+   * Test in browser: `localhost:3000/setCookie` and `localhost:3000/deleteCookie`
+   
+1. Session
+   * Add the following code to `app.js` after `const port = 3000;` (in row 4)
+   ```javascript
+   const username = foo;
+   const password = bar;
+   ```
+   * Create the following routes for GET method:
+      * `/form`
+         * render `views/form.pug`
+      * `/secret`
+         * render `views/secret.pug`
+   * Create the following route for POST method:
+      * `/login`
+         * recieves `username` and `password` from `req.body`
+         * if recieved `username` and `password` match the username and password variables create session variable `logged` and set it to `true` and [redirect](https://expressjs.com/en/api.html#res.redirect) to `/secret`. Else set session variable `logged` to `false` and redirect to `/form`
+      * In `/secret` route check if session variable `logged` is not true, then redirect to `/form`.
+      * Open 'Application' tab in Developer Tools to see cookies in browser
+      * Test in browser: `localhost:3000/form` and `localhost:3000/secret`
