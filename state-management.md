@@ -43,7 +43,7 @@
 * Sessions provide another way to preserve data across subsequent accesses to a web site
 * Using the session mechanism, a visitor accessing your web site is assigned an unique id, the so-called session id. 
 * The session functions allows you to register variables to be preserved across requests
-* When a visitor accesses your site, PHP will check whether a specific session id has been sent with the request. If so, the prior saved environment with the registered variables is recreated.
+* When a visitor accesses your site, Express will check whether a specific session id has been sent with the request. If so, the prior saved environment with the registered variables is recreated.
 * The session id is either stored in a cookie on the client computer, or is propagated from a call to another as part of the URL 
 * Starting and resuming a session: [req.session](https://expressjs.com/en/resources/middleware/session.html#reqsession)
 * [express-session](https://expressjs.com/en/resources/middleware/session.html)
