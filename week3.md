@@ -39,4 +39,8 @@
          * same as Add cat
 1. Server side data sanitization
    * Study [express-validator sanitization](https://express-validator.github.io/docs/sanitization.html)
-   * Some of the fields could be still used to perform attacks. Think which they could be and sanitize those fields.
+   * Some of the fields could be still used to perform [XSS and SQL injections](https://keirstenbrager.tech/sql-vs-xxs-injection-attacks-explained/). Think which they could be and sanitize those fields.
+
+## Cookies and Sessions
+* Study [Maintaining state in web applications](state-management.md)
+
