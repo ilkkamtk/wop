@@ -44,3 +44,9 @@
 ## Cookies and Sessions
 * Study [Maintaining state in web applications](state-management.md)
 
+1. Setup
+   * Navigate to your course folder in terminal or Git Bash
+      * Create `state-management` folder to your course folder.
+      * Start new git repository to `state-management` folder: `cd state-management`, `git init` etc...
+      * Add approriate `.gitignore` to `state-management` folder and commit changes to code regularly
+1. 
