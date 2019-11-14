@@ -62,7 +62,7 @@
       * `/deleteCookie`
          * delete `color` cookie
    * Open 'Application' tab in Developer Tools to see cookies in browser
-   * Test in browser: `localhost:3000/setCookie` and `localhost:3000/deleteCookie`
+   * Test in browser: `localhost:3000/setCookie/someColor` and `localhost:3000/deleteCookie`
    
 1. Session
    * Add the following code to `app.js` after `const port = 3000;` (in row 4)
