@@ -219,7 +219,7 @@
       * [index2.html](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/index2.html)
       * [main2.js to /js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/main2.js)
       * [serialize.js to /js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/serialize.js)
-      * [syle2.css to /css](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/css/syle2.css)
+      * [style2.css to /css](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/css/syle2.css)
    * open index2.html in your browser and test (see also browser's console)
    
 1. Use the `/` route for PUT method in `./routes/catRoute.js` to update cats in database
