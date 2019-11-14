@@ -24,6 +24,7 @@
 1. Server side data validation
    * Study [express-validator](https://express-validator.github.io/docs/)
       * [List of all validators](https://github.com/validatorjs/validator.js#validators)
+      * [MDN Example](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms#Using_express-validator)
    * Validate the same properties on the server side as with above forms:
       * Add user
          * name: minimum length 3 characters, required
