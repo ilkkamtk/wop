@@ -67,8 +67,8 @@
 1. Session
    * Add the following code to `app.js` after `const port = 3000;` (in row 4)
    ```javascript
-   const username = foo;
-   const password = bar;
+   const username = 'foo';
+   const password = 'bar';
    ```
    * Create the following routes for GET method:
       * `/form`
