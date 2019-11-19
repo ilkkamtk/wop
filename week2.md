@@ -215,7 +215,7 @@
          * Reload `index.html`
          
 1. Better UX
-   * Save these files to week2_public_html
+   * These files provide better UX
       * [index2.html](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/index2.html)
       * [main2.js to /js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/main2.js)
       * [serialize.js to /js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/serialize.js)
