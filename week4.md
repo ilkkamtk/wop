@@ -161,7 +161,7 @@
    const passport = require('../passport/passport');
    const authController = require('../controllers/authController');
    
-   router.post('/login', passport.authenticate('local'), authController.login);
+   router.post('/login', authController.login);
    
    module.exports = router;
    ```
