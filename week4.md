@@ -111,6 +111,8 @@
 
 ### [JSON Web Tokens Strategy](http://www.passportjs.org/packages/passport-jwt/)
 * [JSON Web Tokens](https://jwt.io/)
+* [Session vs Token](https://medium.com/@sherryhsu/session-vs-token-based-authentication-11a6c5ac45e4)
+
 * The following task is based on [this](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314) article
 
 1. Setup
@@ -133,10 +135,75 @@
    };
    ...
    ```
-1. Install passport and passport-local `npm i passport passport-local`
+1. Add new file `./controllers/authController.js`
+   ```javascript
+   'use strict';
+   const jwt = require('jsonwebtoken');
+   const passport = require('passport');
+   
+   const login = (req, res) => {
+     // TODO: add passport authenticate
+   };
+   
+   module.exports = {
+     login,
+   };
+
+   ```
+1. Study [this](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314#025a) example and add passport local strategy authentication to TODO section
+   * the example starts with passport.authenticate...
+   
+1. Add new file `./routers/authRouter.js`
+   ```javascript
+   'use strict';
+   const express = require('express');
+   const router = express.Router();
+   const passport = require('../passport/passport');
+   const authController = require('../controllers/authController');
+   
+   router.post('/login', passport.authenticate('local'), authController.login);
+   
+   module.exports = router;
+   ```
+1. Require `./utils/pass.js` and `./routes/authRoute.js` in `app.js`
+
+1. Add `passport.authenticate('jwt', {session: false})` [middleware](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314#dfa8) to `/cat` and `/user` routes.
+
 1. Add new folder `utils` and create new file `./utils/pass.js`
    ```javascript
+   'use strict';
+   const passport = require('passport');
+   const Strategy = require('passport-local').Strategy;
+   const userModel = require('../models/userModel');
    
+   // local strategy for username password login
+   passport.use(new Strategy(
+       async (username, password, done) => {
+         const params = [username, password];
+         try {
+           const [user] = await userModel.getUserLogin(params);
+           console.log('Local strategy', user); // result is binary row
+           if (user === undefined) {
+             return done(null, false, {message: 'Incorrect email or password.'});
+           }
+           return done(null, {...user}, {message: 'Logged In Successfully'}); // use spread syntax to create shallow copy to get rid of binary row type
+         } catch (err) {
+           return done(err);
+         }
+       }));
+   
+   // TODO: JWT strategy for handling bearer token
+   
+   
+   module.exports = passport;
    ```
+1. Study [this](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314#fcdf) example and add JWT strategy to TODO section
+   * use arrow functions
+   * instead of `cb`, use `done` as the name for the callback function
+   * use the local strategy for username password login in the code above as an example
 
-
+1. Test with postman
+   * start with login: POST, localhost:3000/auth/login
+   * after login is succesful, copy the token from response
+   * test token with GET, localhost:3000/cat and localhost:3000/user
+      * add token to Authorization tab, choose TYPE/Bearer Token
