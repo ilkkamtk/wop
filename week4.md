@@ -121,7 +121,7 @@
 
 1. Setup
    * Continue the app started on week 2. You should be now in `week3` branch. Make sure you have committed all files (`git status`) then create new branch `week4`
-   * Install passport, passport-local and passport-jwt `npm i passport passport-local passport-jwt`
+   * Install passport, passport-local, passport-jwt and jsonwebtoken `npm i passport passport-local passport-jwt jsonwebtoken`
    
 1. Create a function getUserLogin to `./models/userModel.js`
    ```javascript
