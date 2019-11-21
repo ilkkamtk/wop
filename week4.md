@@ -157,7 +157,7 @@
 1. Study [this](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314#025a) example and add passport local strategy authentication to TODO section
    * the example starts with passport.authenticate...
    
-1. Add new file `./routers/authRouter.js`
+1. Add new file `./routes/authRoute.js`
    ```javascript
    'use strict';
    const express = require('express');
@@ -168,7 +168,7 @@
    
    module.exports = router;
    ```
-1. Require `./utils/pass.js` and `./routes/authRoute.js` in `app.js`
+1. Require `./utils/pass.js` as passport and `./routes/authRoute.js` as authRoute in `app.js`
 
 1. Add `passport.authenticate('jwt', {session: false})` [middleware](https://medium.com/front-end-weekly/learn-using-jwt-with-passport-authentication-9761539c4314#dfa8) to `/cat` and `/user` routes.
 
