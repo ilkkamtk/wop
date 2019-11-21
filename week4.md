@@ -105,6 +105,7 @@
       module.exports = passport;
    ```
 1. Follow the comments in the code above to finish the task
+   * [Serialize & deserialize](http://www.passportjs.org/docs/downloads/html/#sessions)
 1. Run with nodemon and open localhost:3000 to test
 1. Add [logout](http://www.passportjs.org/docs/logout/) functionality
 1. Commit and push to git
