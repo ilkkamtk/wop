@@ -113,7 +113,7 @@
 1. Add [logout](http://www.passportjs.org/docs/logout/) functionality
 1. Commit and push to git
 
-### [JSON Web Tokens Strategy](http://www.passportjs.org/packages/passport-jwt/)
+### [JSON Web Token Strategy](http://www.passportjs.org/packages/passport-jwt/)
 * [JSON Web Tokens](https://jwt.io/)
 * [Session vs Token](https://medium.com/@sherryhsu/session-vs-token-based-authentication-11a6c5ac45e4)
 
