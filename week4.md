@@ -162,7 +162,6 @@
    'use strict';
    const express = require('express');
    const router = express.Router();
-   const passport = require('../passport/passport');
    const authController = require('../controllers/authController');
    
    router.post('/login', authController.login);
