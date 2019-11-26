@@ -69,9 +69,9 @@
          return user[0];
        };
        
-       const getUserLogin = (email, pass) => {
+       const getUserLogin = (email) => {
          const user = users.filter((usr) => {
-           if (usr.email === email && usr.password === pass) {
+           if (usr.email === email) {
              return usr;
            }
          });
@@ -94,10 +94,12 @@
       
       passport.use(new Strategy(
           (username, password, done) => {
-            // get user by username and password from getUserLogin
-            // if user is undefined 
+            // get user by username from getUserLogin
+            // if user is undefined
             // return done(null, false);
-            // else
+            // if passwords dont match
+            // return done(null, false);
+            // if all is ok
             // return done(null, user.user_id);
           }
       ));
@@ -130,7 +132,7 @@
      try {
        console.log(params);
        const [rows] = await promisePool.execute(
-           'SELECT user_id, name, email FROM wop_user WHERE email = ? AND password = ?;',
+           'SELECT * FROM wop_user WHERE email = ?;',
            params);
        return rows;
      } catch (e) {
@@ -182,12 +184,15 @@
    // local strategy for username password login
    passport.use(new Strategy(
        async (username, password, done) => {
-         const params = [username, password];
+         const params = [username];
          try {
            const [user] = await userModel.getUserLogin(params);
            console.log('Local strategy', user); // result is binary row
            if (user === undefined) {
-             return done(null, false, {message: 'Incorrect email or password.'});
+             return done(null, false, {message: 'Incorrect email.'});
+           }
+           if (user.password !== password) {
+             return done(null, false, {message: 'Incorrect password.'});
            }
            return done(null, {...user}, {message: 'Logged In Successfully'}); // use spread syntax to create shallow copy to get rid of binary row type
          } catch (err) {
