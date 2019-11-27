@@ -179,11 +179,7 @@
 1. Modify `cat create post` in `catController.js`:
    ```javascript
    const cat_create_post = async (req, res) => {
-     const errors = validationResult(req);
-   
-     if (!errors.isEmpty()) {
-       res.send(errors.array());
-     } else {
+    ...
        try {
          // make thumbnail
          resize.makeThumbnail(req.file.path, req.file.filename);
@@ -206,7 +202,7 @@
          console.log('exif error', e);
          res.status(400).json({message: 'error'});
        }
-     }
+     ...
    };
    ```
 1. Install node-exif: `npm i exif`
