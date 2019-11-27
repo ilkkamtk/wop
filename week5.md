@@ -153,6 +153,7 @@
 1. Upload a new cat in index5.html
 
 ### Metadata from image
+1. Study [Creating a Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Creating_a_Promise)
 1. Take a couple of photos with your phone. Make sure that location services are enabled so that the gps data is stored in the images.
 1. Email the images to yourself
 1. Add new field `coords` of type text to `wop_cat` table
