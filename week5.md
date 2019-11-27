@@ -205,7 +205,7 @@
      ...
    };
    ```
-1. Install node-exif: `npm i exif`
+1. Install [node-exif](https://github.com/gomfunkel/node-exif#readme): `npm i exif`
 1. Add new file `utils/imageMeta.js`:
    ```javascript
    'use strict';
