@@ -135,6 +135,10 @@
 1. Use [index5.html](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/index5.html), [main5.js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/main5.js), [mapbox.js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/mapbox.js) and [style5.css](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/css/style5.css) as front-end for testing
    * ask mapbox key from the teacher or create your own
 1. Add new folder `thumbnails`
+1. Add to `app.js`:
+   ```javascript
+   app.use('/thumbnails', express.static('thumbnails'));
+   
 1. Install [sharp](https://github.com/lovell/sharp): `npm i sharp`
 1. Add new file `utils/resize.js`:
    ```javascript
