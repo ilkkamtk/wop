@@ -238,7 +238,7 @@
    };
    ```   
 1. Require `utils/imageMeta.js` as `imageMeta` in `catController.js`
-1. Complete TODO in `utils/resize.js`
+1. Complete TODO in `utils/imageMeta.js`
 1. Upload cat in index5.html to test
 
 ### Upload to virtual computer and run
