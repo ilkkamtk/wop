@@ -112,6 +112,8 @@
 1. Files are sent in HTTP as [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST). Because Express does not handle this type by default you need to use third party middelware like [Multer](https://github.com/expressjs/multer) 
    * Add another form to `index.html` for uploading file
    * Add `uploads` folder to `week2` and use the 'Basic usage example' in Multer's documentation as an example and add file upload functionality to `./routes/catRoutes.js`. Use `/` for POST method as route.
+      * prefer relative path ('./uploads/') instead of absolute path ('/uploads/')
+      * [what is the difference](https://medium.com/@colinlmcdonald/absolute-vs-relative-paths-7ffd8e31d49c)
    * Check `uploads` folder after uploading to see new files. 
       * Filenames are automatically hashed.
       * If you want to have more control over filenames use [Diskstorage](https://github.com/expressjs/multer#diskstorage)
