@@ -20,6 +20,7 @@ Create a folder `node` in `week1`. In the folder create file `script.js` that lo
 * Comes along with Node.js when installed
 * Available on command line with npm command
 * Can update itself with 
+* [npm registry](https://www.npmjs.com/) let you search for existing package
 ```
 npm install -g npm
 ```
