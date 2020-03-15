@@ -19,8 +19,8 @@ Create a folder `node` in `week1`. In the folder create file `script.js` that lo
 * Has the most modules of any package manager for any language
 * Comes along with Node.js when installed
 * Available on command line with npm command
+* [npm registry](https://www.npmjs.com/) let you [search](https://docs.npmjs.com/searching-for-and-choosing-packages-to-download) for existing package
 * Can update itself with 
-* [npm registry](https://www.npmjs.com/) let you search for existing package
 ```
 npm install -g npm
 ```
@@ -28,7 +28,7 @@ npm install -g npm
 ## Global vs. local packages
 Global packages:
 
-* Installed globally with -g switch for npm install
+* Installed [globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) with -g switch for npm install
 * Provide some command-line commands
 * e.g.
   ```
@@ -38,7 +38,7 @@ Global packages:
 
 Local packages
 
-* Installed to the node_modules folder under current folder
+* Installed [locally](https://docs.npmjs.com/downloading-and-installing-packages-locally) to the node_modules folder under current application folder
 * Available only for the current project with require
 * e.g.
   ```
@@ -57,8 +57,8 @@ Install [nodemon](https://nodemon.io/) globally (package name: nodemon) and use 
 Install [lodash](https://lodash.com/) locally and use it to convert 'Foo Bar' to camel case. Modify `script.js` and log the result to console.
 
 ## Package.json
-* JSON file to define an npm project
-* Can contain:
+* JSON file to define an [npm project](https://docs.npmjs.com/creating-a-package-json-file)
+* Can [contain](https://docs.npmjs.com/files/package.json):
   * Project name, description, version, license etc.
   * Dependencies
   * Required node version (engines)
@@ -75,7 +75,7 @@ Install [lodash](https://lodash.com/) locally and use it to convert 'Foo Bar' to
 * Dependency versions can be specified as specific, greater/lower than, ranges, etc.
 
 ## Initializing new project
-Run `npm init` and answer all the interactive questions to populate simple package.json
+Run `npm init` and answer all the interactive questions to populate simple package.json (hint: first create a remote git repository (in gitlab or github or ...), clone it locally and run the `npm init` in that cloned directory).
 
 ## Installing dependencies
 Install all dependencies (dependencies & devDependencies):
