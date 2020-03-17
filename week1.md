@@ -4,7 +4,7 @@
     * [VSCode](https://code.visualstudio.com/) (or Atom, Brackets, etc...)
        * Install extensions for VSCode:
           * Press ctrl-shift-x or click extensions icon on the left panel.
-          * Search and install:          
+          * Search and install:
              * EditorConfig for VS Code
              * ESLint
              * JavaScript (ES6) Code Snippets
@@ -15,7 +15,6 @@
          - [instructions](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
     * [Git](https://git-scm.com/downloads) for Windows users
     * [Metropolia VPN](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
-    * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
 
 1. [Command line intro](https://guide.freecodecamp.org/linux/the-command-prompt/)
 1. [GIT](https://git-scm.com/about)
@@ -29,15 +28,15 @@
           * git add . (this adds all files)
           * git commit -m 'some message'
           * git push -u origin master
-   
-      * Push new changes: 
+
+      * Push new changes:
          * git add .
          * git commit -m 'some message'
          * git push
-      
+
       Remember to make README.md and especially .gitignore _before_ first commit
-   * Create folder `week1` for the following exercises 
-       
+   * Create folder `week1` for the following exercises
+
 1. [Node.js](https://nodejs.org/en/)
    * Study the [material](node.md) and do the exercises
 
@@ -48,7 +47,7 @@
    * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `server-one` folder
    * Add `public` folder to `server-one` and copy the content of this [zip](public.zip) there.
    * Serve the [static content](https://expressjs.com/en/starter/static-files.html) of `public` folder
-   * Add endpoint 'catinfo' to app.js: 
+   * Add endpoint 'catinfo' to app.js:
    ```javascript
    app.get('/catinfo', (req, res) => {
      const cat = {
@@ -60,7 +59,7 @@
    });
    ```
    * test in browser: `localhost:3000`
-   
+
 1. [Pug](https://expressjs.com/en/guide/using-template-engines.html)
    * Duplicate `server-one` folder and rename it to `server-two`
    * Create `views` folder to `server-two`

@@ -9,8 +9,9 @@
    * REST
    * Routing
    * Middleware
-   * Database connection, create, read, update, delete 
+   * Database connection, create, read, update, delete
 * [Week 3](week3.md)
+   * Remote server
    * Data validation
    * Cookies
    * Session

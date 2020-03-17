@@ -63,7 +63,7 @@
          * delete `color` cookie
    * Open 'Application' tab in Developer Tools to see cookies in browser
    * Test in browser: `localhost:3000/setCookie/someColor` and `localhost:3000/deleteCookie`
-   
+
 1. Session
    * Add the following code to `app.js` after `const port = 3000;` (in row 4)
    ```javascript
@@ -82,3 +82,7 @@
       * In `/secret` route check if session variable `logged` is not true, then redirect to `/form`.
       * Open 'Application' tab in Developer Tools to see cookies in browser
       * Test in browser: `localhost:3000/form` and `localhost:3000/secret`
+
+1. Remote server
+    * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
+    * deploy your app on the server (note, from home, make sure to use [metropolia vpn](https://vpn.metropolia.fi)
