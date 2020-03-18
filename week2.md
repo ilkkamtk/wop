@@ -105,7 +105,7 @@
 1. Earlier you moved front end files (html, css etc.) to public_html. If you test the index.html in public_html, you'll get [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) errors in your browser's console. To fix cross-origin issue, you need te enable CORS in your Express app with [these instructions](https://expressjs.com/en/resources/middleware/cors.html). 
    * Test that `index.html` works when you run it locally and from public_html
 
-1. Study [req.body](https://expressjs.com/en/4x/api.html#req.body) on receiving and using data sent by e.g. form
+1. Study [req.body](http://expressjs.com/en/5x/api.html#req.body) on receiving and using data sent by e.g. form
    * `index.html` contains a form that sends userdata with POST method to `http://localhost:3000/user` endpoint.
    * Modify `/` route for post method in `./routes/userRoutes.js`. The route should log the user data sent by the form to the console. Test with Postman and with the form in `index.html`
 
