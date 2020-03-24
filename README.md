@@ -9,7 +9,7 @@
    * REST
    * Routing
    * Middleware
-   * [Tunnel to mysql.metropolia.fi](https://github.com/ilkkamtk/mysql-example)
+   * [Tunnel to mysql.metropolia.fi](mysql+tunneling.md)
    * Database connection, create, read, update, delete
 * [Week 3](week3.md)
    * Remote server
