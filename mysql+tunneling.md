@@ -12,7 +12,9 @@
    * this is not possible when using Zoom
 1. Use ssh tunnel
    * Open terminal or powershell
-   * run `ssh -Ngf -L 3306:mysql.metropolia.fi:3306 username@shell.metropolia.fi`
+   * run `ssh -Ngf -L XXXX:mysql.metropolia.fi:3306 username@shell.metropolia.fi`
+      * replace XXXX with 3306
+         * if 3306 is not available use some other port
       * replace `username` with your Oma username
    * you will be prompted for shell.metropolia.fi password (Oma password)
    
