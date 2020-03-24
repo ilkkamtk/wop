@@ -12,10 +12,9 @@
    * this is not possible when using Zoom
 1. Use ssh tunnel
    * Open terminal or powershell
-   * run `sudo ssh -Ngf -L 3306:mysql.metropolia.fi:3306 username@shell.metropolia.fi`
+   * run `ssh -Ngf -L 3306:mysql.metropolia.fi:3306 username@shell.metropolia.fi`
       * replace `username` with your Oma username
-   * you will be prompted for sudo password (your computer's admin password)
-   * second you will be prompted for shell.metropolia.fi password (Oma password)
+   * you will be prompted for shell.metropolia.fi password (Oma password)
    
 ## Connect to mysql.metropolia.fi with express
 1. Use [this repo](https://github.com/ilkkamtk/mysql-example) as an example
