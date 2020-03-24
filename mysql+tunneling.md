@@ -14,7 +14,7 @@
    * Open terminal or powershell
    * run `ssh -Ngf -L XXXX:mysql.metropolia.fi:3306 username@shell.metropolia.fi`
       * replace XXXX with 3306
-         * if 3306 is not available use some other port
+         * if 3306 is not available on your system use some other port
       * replace `username` with your Oma username
    * you will be prompted for shell.metropolia.fi password (Oma password)
    
