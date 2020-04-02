@@ -85,4 +85,4 @@
 
 1. Remote server
     * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
-    * deploy your app on the server (note, from home, make sure to use [metropolia vpn](https://vpn.metropolia.fi)
+    * deploy your app on the server (note, from home, make sure to use [metropolia vpn](https://vpn.metropolia.fi))
