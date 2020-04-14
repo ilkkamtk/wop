@@ -84,8 +84,9 @@ Notes:
         ProxyPassReverse /app/ https://127.0.0.1:8000/
     </VirtualHost>
     ```
-  * Don't forget to restart apche server ``sudo systemctl restart httpd``
- 1. Force the redirection from HTTP to HTTPS
+    * Don't forget to restart apche server ``sudo systemctl restart httpd``
+1. Express app need to trust the tls/ssl configuration from the proxy server
+1. Eventually, force the redirection from HTTP to HTTPS
 
 ```javascript
 'use strict';
@@ -203,11 +204,11 @@ app.get('/', (req, res) => {
 
 1. You should have at least two users in your database. Change the passwords in the database to these:
    * $2a$10$5RzpyimIeuzNqW7G8seBiOzBiWBvrSWroDomxMa0HzU6K2ddSgixS
-      * this is hashed version of 1234
+      * this is a hashed version of 1234
    * $2a$10$H7bXhRqd68DjwFIVkw3G1OpfIdRWIRb735GvvzCBeuMhac/ZniGba
-      * this is hashed version of qwer
+      * this is a hashed version of qwer
 
-1. Require bcryptjs in `utils/pass.js` and modify the if statement under TODO to use [compareSync](https://github.com/dcodeIO/bcrypt.js#comparesyncs-hash) to check password
+1. Require bcryptjs in `utils/pass.js` and modify the if statement under TODO to use [compareSync](https://github.com/dcodeIO/bcrypt.js#comparesyncs-hash) or better ``await compare(...)`` to check password
 
 1. Test login with index4.html
 
