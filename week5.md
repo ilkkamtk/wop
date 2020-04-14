@@ -60,13 +60,15 @@ http.createServer((req, res) => {
 }).listen(3000);
 ```
 
-Note: about [HTTP status code](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), the 3XX codes are redirect, 301 means Moved Permanently.
+Notes:
+* about [HTTP status code](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), the 3XX codes are redirect, 301 means Moved Permanently.
+* when testing with your browser, because of self-signed certificate, it will show a warning page instead of your app. In Chrome, click [details and proceed unsafe](https://support.google.com/chrome/answer/99020?co=GENIE.Platform%3DDesktop&hl=en-GB). In Firefox, click [Advanced and Accept the Risk and Continue](https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean).
 
 ### express (production server)
 
 1. Generate a self-signed certificate for [CentOS](https://wiki.centos.org/HowTos/Https)
 1. configure apache httpd proxy for https: ``sudo nano /etc/httpd/conf.d/https-node.conf`` (or any .conf file)
-```xml
+```apacheconf
 <VirtualHost *:443>
     ServerName tunnus-numero.metropolia.fi
     SSLEngine on
