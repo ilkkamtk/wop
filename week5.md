@@ -1,4 +1,149 @@
 # Week 5
+
+## HTTPS
+
+
+* [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
+  * HTTP over [TLS/SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+    * TLS is the new progression of SSL
+  * _authentication_ of the visited website
+  * protection of the _privacy_ and _integrity_ of the exchanged data
+* Generally better to implement TLS in reverse-proxy such as Apache or Nginx
+
+### express (localhost development)
+
+* Generate keys and certificate with [openssl](https://www.openssl.org/) (in real life, you would need to get certified by a third party, e.g. [Let’s Encrypt](https://letsencrypt.org/))
+* If you target [modern compatibility](https://wiki.mozilla.org/Security/Server_Side_TLS#Modern_compatibility), recommendation is to use elliptic curve algorithm [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) with prime256v1, secp384r1 or secp521r1 TLS curves (e.g. [see](https://msol.io/blog/tech/create-a-self-signed-ecc-certificate/)) instead of [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+  * For intermediate compatibility (IE7, Android 2.3, Java 7,...), minimum is 2048 bit RSA key; but you can safely use 4096 key
+
+```shell
+$ openssl genrsa -out ssl-key.pem 2048
+$ openssl req -new -key ssl-key.pem -out certrequest.csr
+$ openssl x509 -req -in certrequest.csr -signkey ssl-key.pem -out ssl-cert.pem
+```
+
+* Put the keys and certificate in the app folder and make sure to **add them in .gitignore** too!
+  * Alternative, put the keys and certificate outside the app folder and use relative (e.g. ../certs/) or absolute (e.g. /etc/pki/tls/certs/) path to them
+
+```javascript
+'use strict';
+
+const express = require('express');
+const https = require('https');
+const fs = require('fs');
+
+const sslkey = fs.readFileSync('ssl-key.pem');
+const sslcert = fs.readFileSync('ssl-cert.pem')
+
+const options = {
+      key: sslkey,
+      cert: sslcert
+};
+
+const app = express();
+
+https.createServer(options, app).listen(8000);
+
+app.get('/', (req, res) => {
+  res.send('Hello Secure World!');
+});
+```
+
+* Eventually, force redirection from HTTP to HTTPS
+
+```javascript
+const http = require('http');
+
+http.createServer((req, res) => {
+      res.writeHead(301, { 'Location': 'https://localhost:8000' + req.url });
+      res.end();
+}).listen(3000);
+```
+
+Note: about [HTTP status code](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), the 3XX codes are redirect, 301 means Moved Permanently.
+
+### express (production server)
+
+1. Generate a self-signed certificate for [CentOS](https://wiki.centos.org/HowTos/Https)
+1. configure apache httpd proxy for https: ``sudo nano /etc/httpd/conf.d/https-node.conf`` (or any .conf file)
+```xml
+<VirtualHost *:443>
+    ServerName tunnus-numero.metropolia.fi
+    SSLEngine on
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+    SSLProxyCACertificateFile /etc/pki/tls/certs/ca.crt
+
+    SSLProxyEngine on
+    SSLProxyCheckPeerCN off
+    SSLProxyCheckPeerName off
+    ProxyPreserveHost On
+    ProxyPass /app/ https://127.0.0.1:8000/
+    ProxyPassReverse /app/ https://127.0.0.1:8000/
+</VirtualHost>
+```
+  * Don't forget to restart apche server ``sudo systemctl restart httpd``
+ 1. Force the redirection from HTTP to HTTPS
+
+```javascript
+'use strict';
+
+// dotenv, db, etc.
+const express = require('express');
+const app = express();
+
+app.enable('trust proxy');
+
+// Add a handler to inspect the req.secure flag (see
+// http://expressjs.com/api#req.secure). This allows us
+// to know whether the request was via http or https.
+// https://github.com/aerwin/https-redirect-demo/blob/master/server.js
+app.use ((req, res, next) => {
+  if (req.secure) {
+    // request was via https, so do no special handling
+    next();
+  } else {
+    // if express app run under proxy with sub path URL
+    // e.g. http://www.myserver.com/nodeapp/
+    // then, in your .env, set PROXY_PATH=/nodeapp
+    const proxypath = process.env.PROXY_PASS || ''
+    // request was via http, so redirect to https
+    res.redirect(301, `https://${req.headers.host}${proxypath}${req.url}`);
+  }
+});
+
+app.listen(3000);
+```
+
+### consider separating development and production code
+
+* create node modules for localhost (development) and remote (production) server
+  * cut/paste corresponding code and use node export e.g. for localhost.js
+
+ ```javascript
+// cut-pasted code about localhost: require, tls certs, options,...
+
+module.exports = (app, httpsPort, httpPort) => {
+  https.createServer(options, app).listen(httpsPort);
+  http.createServer(httpsRedirect).listen(httpPort);
+};
+```
+
+* use .env file to choose which code to load
+
+```javascript
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+if (process.env.NODE_ENV === 'production') {
+  const prod = require('./production')(app, process.env.PORT);
+} else {
+  const localhost = require('./localhost')(app, process.env.HTTPS_PORT, process.env.HTTP_PORT);
+}
+app.get('/', (req, res) => {
+  res.send('Hello Secure World!');
+});
+```
+
+
 ## Password hash
 * [Salted Password Hashing - Doing it Right](https://crackstation.net/hashing-security.htm)
 
@@ -6,7 +151,7 @@
 1. Setup
    * Continue the app started on week 2. You should be now in `week4` branch. Make sure you have committed all files (`git status`) then create new branch `week5`
    * Install [bcryptjs](https://github.com/dcodeIO/bcrypt.js#bcryptjs): `npm i bcryptjs`
-   
+
 1. Use [index4.html](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/index4.html) and [main4.js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/main4.js) as front-end
 
 ### Login
@@ -20,7 +165,7 @@
            const [user] = await userModel.getUserLogin(params);
            console.log('Local strategy', user); // result is binary row
            if (user === undefined) { // user not found
-             return done(null, false); 
+             return done(null, false);
            }
            // TODO: use bcrypt to check of passwords don't match
            if (password !== user.password) { // passwords dont match
@@ -49,7 +194,7 @@
      }
    };
    ```
-   
+
 1. Test login with index4.html
 
 1. Logout by deleting the token from browser's session storage (developer tools/application)
@@ -59,7 +204,7 @@
       * this is hashed version of 1234
    * $2a$10$H7bXhRqd68DjwFIVkw3G1OpfIdRWIRb735GvvzCBeuMhac/ZniGba
       * this is hashed version of qwer
-      
+
 1. Require bcryptjs in `utils/pass.js` and modify the if statement under TODO to use [compareSync](https://github.com/dcodeIO/bcrypt.js#comparesyncs-hash) to check password
 
 1. Test login with index4.html
@@ -74,7 +219,7 @@
    const router = express.Router();
    const {body, sanitizeBody} = require('express-validator');
    const authController = require('../controllers/authController');
-   
+
    router.post('/login', authController.login);
    router.get('/logout', authController.logout);
    router.post('/register',
@@ -85,40 +230,40 @@
              matches('(?=.*[A-Z]).{8,}'),
          sanitizeBody('name').escape(),
        ],
-       authController.user_create_post, 
+       authController.user_create_post,
        authController.login,
    );
-   
+
    module.exports = router;
    ```
    * note the addition on third middelware `login` in `/register` route. Why is it there?
-   
+
 1. Delete `user_create_post` function from `controllers/userController.js` and add following to `controllers/authController.js`:
    ```javascript
    const user_create_post = async (req, res, next) => {
      // Extract the validation errors from a request.
      const errors = validationResult(req); // TODO require validationResult, see userController
-   
+
      if (!errors.isEmpty()) {
        console.log('user create error', errors);
        res.send(errors.array());
      } else {
        // TODO: bcrypt password
-   
+
        const params = [
          req.body.name,
          req.body.username,
          req.body.password, // TODO: save hash instead of the actual password
        ];
-       
+
        if (await userModel.addUser(params)) {
          next();
        } else {
          res.status(400).json({error: 'register error'});
-       }   
+       }
      }
    };
-   
+
    const logout = (req, res) => {
      req.logout();
      res.json({message: 'logout'});
@@ -130,7 +275,7 @@
    * Complete the TODOs in the code above
    * Create a new user by using the register form in index4.html
    * Test logout button and login again
-   
+
 ## Create thumbnails
 1. Use [index5.html](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/index5.html), [main5.js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/main5.js), [mapbox.js](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/js/mapbox.js) and [style5.css](https://raw.githubusercontent.com/ilkkamtk/wop-starters/week2-1/week2_public_html/css/style5.css) as front-end for testing
    * ask mapbox key from the teacher or create your own
@@ -138,17 +283,17 @@
 1. Add to `app.js`:
    ```javascript
    app.use('/thumbnails', express.static('thumbnails'));
-   
+
 1. Install [sharp](https://github.com/lovell/sharp): `npm i sharp`
 1. Add new file `utils/resize.js`:
    ```javascript
    'use strict';
    const sharp = require('sharp');
-   
+
    const makeThumbnail = async (file, thumbname) => { // file = full path to image (req.file.path), thumbname = filename (req.file.filename)
      // TODO: use sharp to create a png thumbnail of 160x160px, use async await
    };
-   
+
    module.exports = {
      makeThumbnail,
    };
@@ -175,7 +320,7 @@
        console.log('error', e.message);
      }
    };
-   ``` 
+   ```
 1. Modify `cat create post` in `catController.js`:
    ```javascript
    const cat_create_post = async (req, res) => {
@@ -210,7 +355,7 @@
    ```javascript
    'use strict';
    const ExifImage = require('exif').ExifImage;
-   
+
    const getCoordinates = (imgFile) => { // imgFile = full path to uploaded image
      return new Promise((resolve, reject) => {
        try {
@@ -223,7 +368,7 @@
        }
      });
    };
-   
+
    // convert GPS coordinates to decimal format
    // for longitude, send exifData.gps.GPSLongitude, exifData.gps.GPSLongitudeRef
    // for latitude, send exifData.gps.GPSLatitude, exifData.gps.GPSLatitudeRef
@@ -232,11 +377,11 @@
          parseFloat(gpsData[2] / 3600);
      return (hem === 'S' || hem === 'W') ? d *= -1 : d;
    };
-   
+
    module.exports = {
      getCoordinates,
    };
-   ```   
+   ```
 1. Require `utils/imageMeta.js` as `imageMeta` in `catController.js`
 1. Complete TODO in `utils/imageMeta.js`
 1. Upload cat in index5.html to test
