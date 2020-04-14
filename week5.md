@@ -68,22 +68,22 @@ Notes:
 
 1. Generate a self-signed certificate for [CentOS](https://wiki.centos.org/HowTos/Https)
 1. configure apache httpd proxy for https: ``sudo nano /etc/httpd/conf.d/https-node.conf`` (or any .conf file)
-```apacheconf
-<VirtualHost *:443>
-    ServerName tunnus-numero.metropolia.fi
-    SSLEngine on
-    SSLCertificateFile /etc/pki/tls/certs/ca.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
-    SSLProxyCACertificateFile /etc/pki/tls/certs/ca.crt
-
-    SSLProxyEngine on
-    SSLProxyCheckPeerCN off
-    SSLProxyCheckPeerName off
-    ProxyPreserveHost On
-    ProxyPass /app/ https://127.0.0.1:8000/
-    ProxyPassReverse /app/ https://127.0.0.1:8000/
-</VirtualHost>
-```
+    ```apacheconf
+    <VirtualHost *:443>
+        ServerName tunnus-numero.metropolia.fi
+        SSLEngine on
+        SSLCertificateFile /etc/pki/tls/certs/ca.crt
+        SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+        SSLProxyCACertificateFile /etc/pki/tls/certs/ca.crt
+    
+        SSLProxyEngine on
+        SSLProxyCheckPeerCN off
+        SSLProxyCheckPeerName off
+        ProxyPreserveHost On
+        ProxyPass /app/ https://127.0.0.1:8000/
+        ProxyPassReverse /app/ https://127.0.0.1:8000/
+    </VirtualHost>
+    ```
   * Don't forget to restart apche server ``sudo systemctl restart httpd``
  1. Force the redirection from HTTP to HTTPS
 
