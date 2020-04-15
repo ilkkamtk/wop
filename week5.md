@@ -110,8 +110,9 @@ app.use ((req, res, next) => {
     next();
   } else {
     // if express app run under proxy with sub path URL
-    // e.g. http://www.myserver.com/nodeapp/
-    // then, in your .env, set PROXY_PATH=/nodeapp
+    // e.g. http://www.myserver.com/app/
+    // then, in your .env, set PROXY_PASS=/app 
+    // Adapt to your proxy settings!
     const proxypath = process.env.PROXY_PASS || ''
     // request was via http, so redirect to https
     res.redirect(301, `https://${req.headers.host}${proxypath}${req.url}`);
