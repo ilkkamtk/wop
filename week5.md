@@ -94,7 +94,7 @@ Notes:
 ```javascript
 'use strict';
 
-// dotenv, db, etc.
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
