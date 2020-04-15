@@ -141,9 +141,9 @@ module.exports = (app, httpsPort, httpPort) => {
 ```javascript
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 if (process.env.NODE_ENV === 'production') {
-  const prod = require('./production')(app, process.env.PORT);
+  require('./production')(app, process.env.PORT);
 } else {
-  const localhost = require('./localhost')(app, process.env.HTTPS_PORT, process.env.HTTP_PORT);
+  require('./localhost')(app, process.env.HTTPS_PORT, process.env.HTTP_PORT);
 }
 app.get('/', (req, res) => {
   res.send('Hello Secure World!');
