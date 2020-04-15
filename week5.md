@@ -75,13 +75,13 @@ Notes:
         SSLCertificateFile /etc/pki/tls/certs/ca.crt
         SSLCertificateKeyFile /etc/pki/tls/private/ca.key
         SSLProxyCACertificateFile /etc/pki/tls/certs/ca.crt
-    
+
         SSLProxyEngine on
         SSLProxyCheckPeerCN off
         SSLProxyCheckPeerName off
         ProxyPreserveHost On
         RequestHeader set X-Forwarded-Proto https
-       
+
         ProxyPass /app/ http://127.0.0.1:3000/
         ProxyPassReverse /app/ http://127.0.0.1:3000/
     </VirtualHost>
@@ -111,7 +111,7 @@ app.use ((req, res, next) => {
   } else {
     // if express app run under proxy with sub path URL
     // e.g. http://www.myserver.com/app/
-    // then, in your .env, set PROXY_PASS=/app 
+    // then, in your .env, set PROXY_PASS=/app
     // Adapt to your proxy settings!
     const proxypath = process.env.PROXY_PASS || ''
     // request was via http, so redirect to https
