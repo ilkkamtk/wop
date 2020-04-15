@@ -80,11 +80,14 @@ Notes:
         SSLProxyCheckPeerCN off
         SSLProxyCheckPeerName off
         ProxyPreserveHost On
-        ProxyPass /app/ https://127.0.0.1:8000/
-        ProxyPassReverse /app/ https://127.0.0.1:8000/
+        RequestHeader set X-Forwarded-Proto https
+       
+        ProxyPass /app/ http://127.0.0.1:3000/
+        ProxyPassReverse /app/ http://127.0.0.1:3000/
     </VirtualHost>
     ```
     * Don't forget to restart apche server ``sudo systemctl restart httpd``
+    * Note, the proxy pass to http (not https), it's the X-Forwarded-Proto that does it
 1. Express app need to trust the tls/ssl configuration from the proxy server
 1. Eventually, force the redirection from HTTP to HTTPS
 
