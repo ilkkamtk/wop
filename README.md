@@ -18,6 +18,7 @@
    * Session
 * [Week 4](week4.md)
    * Authentication
-   * Security
+   * JWT
 * [Week 5](week5.md)
+   * Security
    * Other 3rd party libraries
