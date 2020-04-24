@@ -169,12 +169,12 @@ ol ol ol { list-style-type: lower-roman; }
         ``$ sudo vi /etc/httpd/conf.d/node.conf``
    1.  add the following content:
        ```apacheconf
- <VirtualHost *:80>
-  ProxyPreserveHost On
-  ProxyPass /app/ http://127.0.0.1:3000/
-  ProxyPassReverse /app/ http//:127.0.0.1:3000/
-</VirtualHost>
-```
+       <VirtualHost *:80>
+         ProxyPreserveHost On
+         ProxyPass /app/ http://127.0.0.1:3000/
+         ProxyPassReverse /app/ http//:127.0.0.1:3000/
+       </VirtualHost>
+       ```
 1.   save and restart apache server\
         ``$ sudo systemctl restart httpd``
 1.  give permission to apache server to visit URL\
