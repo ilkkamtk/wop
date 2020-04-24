@@ -1,11 +1,13 @@
-<style
+<!-- F**K GitHub style
   type="text/css">
 ol ol { list-style-type: lower-alpha; }
 ol ol ol { list-style-type: lower-roman; }
-</style>
+</style -->
 
 #LAMPin ja Node asennus Metropolian Educloud-virtuaalikoneille (CentOS
+
 ##Virtuaalikoneella olevien web-sivujen katsominen selaimella koulun verkon ulkopuolelta
+
 1.  Käytä [Metropolian VPN-etäyhteyttä](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
 2.  Other options (e.g. during zoom session to reduce vpn bandwidth)
    1.  to test your app/webpages, create a [ssh tunnel and configure one of your browsers through it](https://tietohallinto.metropolia.fi/display/tietohallinto/SSH-tunnelointi).
@@ -17,13 +19,14 @@ ol ol ol { list-style-type: lower-roman; }
        ``$ ssh <your-server-username>@<your-server-IP>``
 
 ##LAMP
+
 1.  Pyydä itsellesi virtuaalikonetta
    1.  Mene osoitteeseen [https://educloud.metropolia.fi/](https://educloud.metropolia.fi/)
    1.  Kirjaudu omatunnuksillasi
    1.  Valitse Services/Catalogs
    1.  Valitse Centos 7 x64
-      1.  jos haluat PHPn ja PhpMyAdminin valmiiksi asennettuna valitse 'Centos 7 x64 LAMP'
-      1. Jos valmis LAMP ei toimi, poista virtuaalikone ja tee uusi virtuaalikone ilman LAMPia ja asenna Apachet ym. tämän ohjeen avulla itse
+     i.  jos haluat PHPn ja PhpMyAdminin valmiiksi asennettuna valitse 'Centos 7 x64 LAMP'
+     i. Jos valmis LAMP ei toimi, poista virtuaalikone ja tee uusi virtuaalikone ilman LAMPia ja asenna Apachet ym. tämän ohjeen avulla itse
    1.  Valitse S-Small, Lease time 4 months
    1.  ([Tietohallinnon ohje](https://wiki.metropolia.fi/pages/viewpage.action?pageId=132852058))
 2.  Odota 10-15 minuuttia koneen valmistumista
@@ -151,8 +154,8 @@ UserDir public_html
    1.  Aja komento\
         ``$ sudo vi /etc/php.ini``
    1.  Etsi rivi upload_max_filesize = 2M
-       1.  haku tehdään merkillä /
-       1. esim: /upload
+      i.  haku tehdään merkillä /
+      i. esim: /upload
    1.  Aseta haluamasi arvo esim ``upload_max_filesize = 64M``
    1.  Tallenna ja poistu editorista kuten aiemmin
    1.  Uudelleenkäynnistä Apache\
@@ -163,6 +166,7 @@ UserDir public_html
         sitten kun olet saanut tehtävästä/kurssista arvosanan
 
 ##Install and configure NodeJS
+
 1.  Install node for Centos: [https://github.com/nodesource/distributions/blob/master/README.md#rpm](https://github.com/nodesource/distributions/blob/master/README.md#rpm)
     use the # No root privileges version, so something like:\
     ``$ curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -``\
