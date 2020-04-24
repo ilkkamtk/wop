@@ -139,9 +139,9 @@ ol ol ol { list-style-type: lower-roman; }
         Käytä sudoa ennen komentoja.
    1.  userdir.conf-tiedostosta vaihdetaan vain näitä kahta riviä:
        ```apacheconf
-UserDir enabled haluamasiNimi
-UserDir public_html
-```
+       UserDir enabled haluamasiNimi
+       UserDir public_html
+       ```
 1. Linkin ohjeissa unixmenuser on sama kuin haluamasiNimi aikaisemmin
    1.  visit: ``http://<ip-address>/~<username>/``
 1. Jos koodaat PHP:llä ja haluat muuttaa tallennettavien tiedostojen maksimikokoa (vakio 2MB)
