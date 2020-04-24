@@ -193,10 +193,10 @@ ol ol ol { list-style-type: lower-roman; }
    1.  create/edit .env file with your db credentials (you set in LAMP point 9.)
        ```apacheconf
         DB_HOST=127.0.0.1
-DB_USER=<your-db-user>
-DB_PASS=<your-db-user_password>
-DB_NAME=<your-db-name>
-```
+        DB_USER=<your-db-user>
+        DB_PASS=<your-db-user_password>
+        DB_NAME=<your-db-name>
+        ```
 1. make sure that you deployed your database with its tables [https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt](https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt)
    1.  run your application\
         ``$ node app.js``
