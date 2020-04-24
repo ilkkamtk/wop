@@ -3,6 +3,7 @@
 ol ol { list-style-type: lower-alpha; }
 ol ol ol { list-style-type: lower-roman; }
 </style>
+
 #LAMPin ja Node asennus Metropolian Educloud-virtuaalikoneille (CentOS
 ##Virtuaalikoneella olevien web-sivujen katsominen selaimella koulun verkon ulkopuolelta
 1.  Käytä [Metropolian VPN-etäyhteyttä](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
