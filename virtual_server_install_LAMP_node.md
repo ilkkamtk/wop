@@ -1,4 +1,5 @@
-<style type="text/css">
+<style
+  type="text/css">
 ol ol { list-style-type: lower-alpha; }
 ol ol ol { list-style-type: lower-roman; }
 </style>
@@ -83,10 +84,10 @@ ol ol ol { list-style-type: lower-roman; }
     ja sen jälkeen siirry kohtaan 7. d)
    1.  Aja komento \
        ``$ sudo vi /var/www/html/info.php``
-   1.  Aktivoi editointi painamalla i. Lisää tämä teksti: 
+   1.  Aktivoi editointi painamalla i. Lisää tämä teksti:
        ```php
-       <?php 
-         phpinfo(); 
+       <?php
+         phpinfo();
        ?>
        ```
    1.  Lopeta editointi ja tallenna. Paina ``esc`` ja kirjoita ``:wq``
@@ -211,6 +212,6 @@ DB_NAME=<your-db-name>
 #Extra and resources
 -    [Unix/linux command](https://centoshelp.org/resources/commands/linux-system-commands/)
 -     [vim commands](https://vim.rtorr.com/) (works with ``vi`` and ``visudo``)
--   [autocomplete](https://www.cyberciti.biz/faq/fedora-redhat-scientific-linuxenable-bash-completion/) (make typing command faster using tab key) 
--  [sudo autocomplete](http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html)  (so tab key works when you type ``sudo ...``) 
+-   [autocomplete](https://www.cyberciti.biz/faq/fedora-redhat-scientific-linuxenable-bash-completion/) (make typing command faster using tab key)
+-  [sudo autocomplete](http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html)  (so tab key works when you type ``sudo ...``)
 -    [installing extra packages](https://wiki.centos.org/AdditionalResources/Repositories)
