@@ -45,6 +45,7 @@
    * Create package.json (`npm init`) in `server-one` folder
    * Install express `npm install express --save`
    * Do the [Hello world example](https://expressjs.com/en/starter/hello-world.html) to `server-one` folder
+     * Clean code (`'use strict';`, end lines with semicolon `;`, etc.)
    * Add `public` folder to `server-one` and copy the content of this [zip](public.zip) there.
    * Serve the [static content](https://expressjs.com/en/starter/static-files.html) of `public` folder
    * Add endpoint 'catinfo' to app.js:
