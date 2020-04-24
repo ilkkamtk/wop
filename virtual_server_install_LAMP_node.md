@@ -8,8 +8,8 @@ ol ol ol { list-style-type: lower-roman; }
 
 ## Virtuaalikoneella olevien web-sivujen katsominen selaimella koulun verkon ulkopuolelta
 
-1.  Käytä [Metropolian VPN-etäyhteyttä](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
-2.  Other options (e.g. during zoom session to reduce vpn bandwidth)
+1. Käytä [Metropolian VPN-etäyhteyttä](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
+2. Other options (e.g. during zoom session to reduce vpn bandwidth)
    1.  to test your app/webpages, create a [ssh tunnel and configure one of your browsers through it](https://tietohallinto.metropolia.fi/display/tietohallinto/SSH-tunnelointi).
        (use your metropolia username and password)\
        ``$ ssh -Nf -D 8888 <met-username>@shell.metropolia.fi``
@@ -20,19 +20,19 @@ ol ol ol { list-style-type: lower-roman; }
 
 ## LAMP
 
-1.  Pyydä itsellesi virtuaalikonetta
+1. Pyydä itsellesi virtuaalikonetta
    1.  Mene osoitteeseen [https://educloud.metropolia.fi/](https://educloud.metropolia.fi/)
    1.  Kirjaudu omatunnuksillasi
    1.  Valitse Services/Catalogs
-   1.  Valitse Centos 7 x64
-     1.  jos haluat PHPn ja PhpMyAdminin valmiiksi asennettuna valitse 'Centos 7 x64 LAMP'
-     1. Jos valmis LAMP ei toimi, poista virtuaalikone ja tee uusi virtuaalikone ilman LAMPia ja asenna Apachet ym. tämän ohjeen avulla itse
+   1. Valitse Centos 7 x64
+      1.  jos haluat PHPn ja PhpMyAdminin valmiiksi asennettuna valitse 'Centos 7 x64 LAMP'
+      1. Jos valmis LAMP ei toimi, poista virtuaalikone ja tee uusi virtuaalikone ilman LAMPia ja asenna Apachet ym. tämän ohjeen avulla itse
    1.  Valitse S-Small, Lease time 4 months
    1.  ([Tietohallinnon ohje](https://wiki.metropolia.fi/pages/viewpage.action?pageId=132852058))
-2.  Odota 10-15 minuuttia koneen valmistumista
+2. Odota 10-15 minuuttia koneen valmistumista
    1.  Saat sähköpostiisi tiedot koneen ip-osoitteesta, salasanasta ym
 3.  Mikäli käytössäsi on Windows, odottamisen aikana asenna itsellesi jonkinlainen terminaaliohjelmisto (CLI). Suositus on [Gitin mukana tuleva Git Bash](https://git-scm.com/downloads). Mac/Linux käyttäjillä terminaali löytyy vakiona (esim. Macillä se löytyy Applications/Utilities -kansiosta)
-4.  Käynnistä terminaali ja ota yhteys virtuaalikoneeseen (jos olet koulun verkossa mene suoraan kohtaan b)
+4. Käynnistä terminaali ja ota yhteys virtuaalikoneeseen (jos olet koulun verkossa mene suoraan kohtaan b)
    1.  Mikäli et ole koulun koneella tai eduroam-verkossa käytä [Metropolian VPN-etäyhteyttä](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
    1.  Sitten yhteys virtuaalikoneeseen:\
         ``$ ssh root@IPosoiteJonkaSaitSähköpostissa``
@@ -84,8 +84,7 @@ ol ol ol { list-style-type: lower-roman; }
     on nimeltään YUM. Sen avulla voi esim. hakea päivityksiä, joka on
     suotavaa esim. viikon välein. Päivityskomento on\
     ``$ sudo yum update``
-3.  Jos valitsin LAMP asennuksen kohdassa 1, siirry kohtaan 7. a).  Muuten asenna LAMP [tämän linkin ohjeilla](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7)
-    ja sen jälkeen siirry kohtaan 7. d)
+3. Jos valitsin LAMP asennuksen kohdassa 1, siirry kohtaan 7. a).  Muuten asenna LAMP [tämän linkin ohjeilla](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7) ja sen jälkeen siirry kohtaan 7. d)
    1.  Aja komento \
        ``$ sudo vi /var/www/html/info.php``
    1.  Aktivoi editointi painamalla i. Lisää tämä teksti:
@@ -110,8 +109,7 @@ ol ol ol { list-style-type: lower-roman; }
         ``$ sudo firewall-cmd --reload``
    1.  Step three kohdassa puhutaan moduuleista. Mitään moduuleja ei
         tarvitse asentaa
-4.  Asennetaan phpMyAdmin (JOS VALITSIT LAMP ASENNUKSEN, HYPPÄÄ KOHTAAN
-   1.g)
+4. Asennetaan phpMyAdmin (JOS VALITSIT LAMP ASENNUKSEN, HYPPÄÄ KOHTAAN 1.g)
    1.  Lisätään sopiva rpm paketti (Alla oleva komento yhdelle riville)\
         ``$ sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm``
    1.  Asennetaan phpMyAdmin\
@@ -128,8 +126,7 @@ ol ol ol { list-style-type: lower-roman; }
    1.  Mene selaimella osoitteeseen\
         ``IPosoiteJonkaSaitSähköpostissa/phpmyadmin``
    1.  Kirjaudu sisään. Tunnus: root, Salasana: ks sähköposti
-5.  Tee phpMyAdminissa uusi käyttäjä, koska root:ia ei kannata käyttää
-    web-sovelluksissa
+5. Tee phpMyAdminissa uusi käyttäjä, koska root:ia ei kannata käyttää web-sovelluksissa
    1.  Valitse Users välilehti
    1.  Täytä nimi ja salasana
    1.  Ruksaa kohta Create database with same name and grant all
@@ -137,8 +134,7 @@ ol ol ol { list-style-type: lower-roman; }
    1.  Muita asetuksia ei tarvitse muuttaa.
    1.  Paina alareunasta Go
 
-1.  Rootin kotihakemisto on ``/var/www/html``. Tehdään omalle käyttäjälle
-    public_html-hakemisto:
+1. Rootin kotihakemisto on ``/var/www/html``. Tehdään omalle käyttäjälle public_html-hakemisto:
    1.  Aloita kohdasta '[Enable Apache Userdirs](https://www.unixmen.com/linux-basics-enable-apache-userdir-centos-7rhel-7/)'.
         Käytä sudoa ennen komentoja.
    1.  userdir.conf-tiedostosta vaihdetaan vain näitä kahta riviä:
@@ -146,22 +142,19 @@ ol ol ol { list-style-type: lower-roman; }
 UserDir enabled haluamasiNimi
 UserDir public_html
 ```
-1.  Linkin ohjeissa unixmenuser on sama kuin haluamasiNimi
-        aikaisemmin
+1. Linkin ohjeissa unixmenuser on sama kuin haluamasiNimi aikaisemmin
    1.  visit: ``http://<ip-address>/~<username>/``
-1.  Jos koodaat PHP:llä ja haluat muuttaa tallennettavien tiedostojen
-    maksimikokoa (vakio 2MB)
+1. Jos koodaat PHP:llä ja haluat muuttaa tallennettavien tiedostojen maksimikokoa (vakio 2MB)
    1.  Aja komento\
         ``$ sudo vi /etc/php.ini``
-   1.  Etsi rivi upload_max_filesize = 2M
+   1. Etsi rivi upload_max_filesize = 2M
       1.  haku tehdään merkillä /
       1. esim: /upload
    1.  Aseta haluamasi arvo esim ``upload_max_filesize = 64M``
    1.  Tallenna ja poistu editorista kuten aiemmin
    1.  Uudelleenkäynnistä Apache\
         ``$ sudo systemctl restart httpd``
-2.  Kun et enää tarvitse virtuaalikonetta poista se käytöstä
-    educloud.metropolia.fi:ssä kohdassa ``lifecycle -> retire this vm``
+2. Kun et enää tarvitse virtuaalikonetta poista se käytöstä educloud.metropolia.fi:ssä kohdassa ``lifecycle -> retire this vm``
    1.  Virtuaalikoneista ei oteta varmuuskopioita, joten tee tämä vasta
         sitten kun olet saanut tehtävästä/kurssista arvosanan
 
@@ -171,7 +164,7 @@ UserDir public_html
     use the # No root privileges version, so something like:\
     ``$ curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -``\
     ``$ sudo yum install -y nodejs``
-1.  Configure Apache httpd server as a reverse proxy to node server:
+1. Configure Apache httpd server as a reverse proxy to node server:
    1.  create/edit an apache configuration file:\
         ``$ sudo vi /etc/httpd/conf.d/node.conf``
    1.  add the following content:
@@ -186,7 +179,7 @@ UserDir public_html
         ``$ sudo systemctl restart httpd``
 1.  give permission to apache server to visit URL\
         ``$ sudo setsebool -P httpd_can_network_connect 1``
-2.  Install and run your node application:
+2. Install and run your node application:
    1.  make sure you are in your home folder:\
         ``$ cd``
    1.  clone your app (choose HTTPS)\
@@ -204,7 +197,7 @@ DB_USER=<your-db-user>
 DB_PASS=<your-db-user_password>
 DB_NAME=<your-db-name>
 ```
-1.    make sure that you deployed your database with its tables [https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt](https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt)
+1. make sure that you deployed your database with its tables [https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt](https://github.com/ilkkamtk/wop-starters/blob/week2-1/tables.txt)
    1.  run your application\
         ``$ node app.js``
    1.  test, open a browser and visit ``http://<your-server-ip>/app/cat``
