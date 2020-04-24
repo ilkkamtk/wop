@@ -84,5 +84,5 @@
       * Test in browser: `localhost:3000/form` and `localhost:3000/secret`
 
 1. Remote server
-    * [Install Educloud virtual computer](https://docs.google.com/document/d/10_NYlJdMaDE_Cv3yZvaZn2g9scs8-n7GOYxOgSrAgC0/edit#heading=h.vfts8ixd14uo)
+    * [Install Educloud virtual computer](virtual_server_install_LAMP_node.md)
     * deploy your app on the server (note, from home, make sure to use [metropolia vpn](https://vpn.metropolia.fi))
