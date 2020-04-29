@@ -208,8 +208,8 @@ ol ol ol { list-style-type: lower-roman; }
         ``$ pkill node``
 
 ## Extra and resources
--    [Unix/linux command](https://centoshelp.org/resources/commands/linux-system-commands/)
--     [vim commands](https://vim.rtorr.com/) (works with ``vi`` and ``visudo``)
--   [autocomplete](https://www.cyberciti.biz/faq/fedora-redhat-scientific-linuxenable-bash-completion/) (make typing command faster using tab key)
--  [sudo autocomplete](http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html)  (so tab key works when you type ``sudo ...``)
--    [installing extra packages](https://wiki.centos.org/AdditionalResources/Repositories)
+- [Unix/linux command](https://centoshelp.org/resources/commands/linux-system-commands/)
+- [vim commands](https://vim.rtorr.com/) (works with ``vi`` and ``visudo``)
+- [autocomplete](https://www.cyberciti.biz/faq/fedora-redhat-scientific-linuxenable-bash-completion/) (make typing command faster using tab key)
+- [sudo autocomplete](http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html)  (so tab key works when you type ``sudo ...``)
+- [installing extra packages](https://wiki.centos.org/AdditionalResources/Repositories)
