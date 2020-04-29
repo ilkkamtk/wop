@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-* Eventually, force redirection from HTTP to HTTPS
+* Force redirection from HTTP to HTTPS
 
 ```javascript
 const http = require('http');
@@ -89,7 +89,7 @@ Notes:
     * Don't forget to restart apche server ``sudo systemctl restart httpd``
     * Note, the proxy pass to http (not https), it's the X-Forwarded-Proto that does it
 1. Express app need to trust the tls/ssl configuration from the proxy server
-1. Eventually, force the redirection from HTTP to HTTPS
+1. Force the redirection from HTTP to HTTPS
 
 ```javascript
 'use strict';
