@@ -12,7 +12,7 @@ node my-script.js
 ```
 
 ### Exercise
-Create a folder `node` in `week1`. In the folder create file `script.js` that logs 'This is JavaScript' to console, and run it. 
+Create a folder `node` in `week1`. In the folder create file `script.js` that logs 'This is JavaScript' to console, and run it.
 
 ## npm
 * npm (Node Package Manager) is the package manager for Node.js
@@ -20,12 +20,12 @@ Create a folder `node` in `week1`. In the folder create file `script.js` that lo
 * Comes along with Node.js when installed
 * Available on command line with npm command
 * [npm registry](https://www.npmjs.com/) let you [search](https://docs.npmjs.com/searching-for-and-choosing-packages-to-download) for existing package
-* Can update itself with 
+* Can update itself with
 ```
 npm install -g npm
 ```
 
-## Global vs. local packages
+## Global v.s. local packages
 Global packages:
 
 * Installed [globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) with -g switch for npm install
@@ -46,7 +46,7 @@ Local packages
   ```
   ```javascript
   // in js file:
-  const _ = require('underscore')
+  const _ = require('underscore');
   ```
 
 ### Exercise
@@ -64,7 +64,7 @@ Install [lodash](https://lodash.com/) locally and use it to convert 'Foo Bar' to
   * Required node version (engines)
   * npm scripts (covered later)
   * etc.
-  
+
 ## Dependencies
 * Multiple types of dependencies:
   * dependencies for actual run-time dependencies
@@ -79,7 +79,7 @@ Run `npm init` and answer all the interactive questions to populate simple packa
 
 ## Installing dependencies
 Install all dependencies (dependencies & devDependencies):
-``` 
+```
 npm install
 ```
 
@@ -124,6 +124,6 @@ npm start
 npm run start
 ```
 ### Exercise
-* Initialize new project (still in `node` folder) 
+* Initialize new project (still in `node` folder)
 * Install lodash as dependency
 * Create a custom npm script `start` to `package.json`. The npm script should start `script.js` with `nodemon`. Run the script with `npm start`
