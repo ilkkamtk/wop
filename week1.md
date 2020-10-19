@@ -52,9 +52,9 @@
    ```javascript
    app.get('/catinfo', (req, res) => {
      const cat = {
-       'name': 'Frank',
-       'age': 6,
-       'weight': 5,
+       name: 'Frank',
+       age: 6,
+       weight: 5,
      };
      res.json(cat);
    });
