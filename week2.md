@@ -15,7 +15,7 @@
      * POST response: `With this endpoint you can add cats.`
      * PUT response: `With this endpoint you can edit cats.`
      * DELETE response: `With this endpoint you can delete cats.`
-   * Test the routes with [Postman](https://www.getpostman.com/)
+   * Test the routes with [Postman](https://www.postman.com/downloads/)
    
 1. Study [route parameters](https://expressjs.com/en/guide/routing.html#route-parameters)
    * Use [Path variable](https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d) to get a cat with a specific id from `./models/catModel.js`
