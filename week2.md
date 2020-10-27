@@ -130,7 +130,9 @@
        * `.env` (dotenv) is used to store sensitive data such as database username and password. Add `.env` to `.gitignore` so that it won't be pushed to GitHub.
        * follow the instructions of dotenv to create `.env` file
        * for virtual computer host is localhost or the ip-address
-       * for metropolia's database host is mysql.metropolia.fi
+       * for metropolia's database host is mysql.metropolia.fi (if inside metropolia network or using metropolia's vpn) or localhost (if using [ssh tunnel](mysql+tunneling.md))
+       * in metropolia database, name is the same as your username
+       * on virtual computer, name is whatever name you give to your database
 1. Add new folder `database` and add there a new file `db.js`
    * Instead of regular [connection](https://github.com/sidorares/node-mysql2#first-query) we'll use [connection pool](https://github.com/sidorares/node-mysql2#using-connection-pools):
    ```javascript
