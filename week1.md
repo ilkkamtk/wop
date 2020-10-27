@@ -12,7 +12,7 @@
     * Some file transfer app like WinSCP, FileZilla or Cyberduck
     * [Node.js](https://nodejs.org/en/) LTS version
        * MacOS no sudo for Mac users
-         - [instructions](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
+         - [instructions](https://medium.com/@Mandysidana/using-npm-install-without-sudo-2de6f8a9e1a3)
     * [Git](https://git-scm.com/downloads) for Windows users (or from [git for windows](https://gitforwindows.org/) which comes with git bash)
     * [Metropolia VPN](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
 
@@ -52,9 +52,9 @@
    ```javascript
    app.get('/catinfo', (req, res) => {
      const cat = {
-       'name': 'Frank',
-       'age': 6,
-       'weight': 5,
+       name: 'Frank',
+       age: 6,
+       weight: 5,
      };
      res.json(cat);
    });
