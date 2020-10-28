@@ -6,9 +6,7 @@
 2. Other options (e.g. during zoom session to reduce vpn bandwidth)
    1.  to test your app/webpages, create a [ssh tunnel and configure one of your browsers through it](https://tietohallinto.metropolia.fi/display/itservices/SSH+Tunnelling).
        (use your metropolia username and password)
-       ```bash
-       $ ssh -Nf -D 8888 <your-metropolia-username>@shell.metropolia.fi
-       ```
+       ``$ ssh -Nf -D 8888 <your-metropolia-username>@shell.metropolia.fi``
    1.  For the terminal access to your server, use double ssh, first from your local machine to shell.metropolia.fi (with your        metropolia username/password):\
         ``$ ssh <your-metropolia-username>@shell.metropolia.fi``
        once connected to metropolia shell, you can connect to your server:\
