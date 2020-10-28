@@ -5,8 +5,10 @@
 1. Configure [Metropolia VPN](https://wiki.metropolia.fi/display/itservices/Install+and+Use+VPN+Utility+Program+Installation+on+Your+Own+Computer)
 2. Other options (e.g. during zoom session to reduce vpn bandwidth)
    1.  to test your app/webpages, create a [ssh tunnel and configure one of your browsers through it](https://tietohallinto.metropolia.fi/display/itservices/SSH+Tunnelling).
-       (use your metropolia username and password)\
-       ``$ ssh -Nf -D 8888 <your-metropolia-username>@shell.metropolia.fi``
+       (use your metropolia username and password)
+       ```bash
+       $ ssh -Nf -D 8888 <your-metropolia-username>@shell.metropolia.fi
+       ```
    1.  For the terminal access to your server, use double ssh, first from your local machine to shell.metropolia.fi (with your        metropolia username/password):\
         ``$ ssh <your-metropolia-username>@shell.metropolia.fi``
        once connected to metropolia shell, you can connect to your server:\
@@ -53,7 +55,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  To escape from insert mode, type ``esc``-key. Save and quit the editor by typing ``:wq``
    1.  Give your user the permission to ssh to the server by editing ssh deamon configuration:\
         ``# vi /etc/ssh/sshd_config``
-   1.  Navigate to the end of the file (e.g. with ``G``-key (captital g)) and add the following line:\
+   1.  Navigate to the end of the file (e.g. with ``G``-key (captital g)) and add the following line:
        ```apacheconf
         AllowUsers wantedUsername
        ```
@@ -101,7 +103,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
       Note: database root user is not operating system root user! Avoid same password!
    1. Connect to your database:\
       ``$ mysql -u root -p``
-      * create a database and a user with privileges on it:\
+      1. create a database and a user with privileges on it:
         ```sql
         > CREATE DATABASE catdb;
         > CREATE USER 'dbuser' IDENTIFIED BY 'test123';
@@ -116,7 +118,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1. Import the tables and insert the data:\
       ``$ mysql -u dbuser -p catdb < tables.txt``
    1. Eventually check:\
-      ``$ mysql -u dbuser -p catdb``\
+      ``$ mysql -u dbuser -p catdb``
       ```sql
       > SHOW TABLES;
       > SELECT * FROM wop_cat;
