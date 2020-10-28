@@ -40,21 +40,21 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  Give that user sudo (super user do) priviledges:\
         ``# visudo``
    1.  Navigate to the line that shows:
-       ```apache
+       ```apacheconf
         ## Allow root to run any commands anywhere
         root ALL=(ALL) ALL
         ```
         To move in the text, use arrow keys or ``hjkl`` keys (e.g. to move 92 lines down, press ``92j``).
    1.  Add a new line and enter in insert mode by typying ``o``-key (notice the INSERT on the last line).
         Type
-       ```apache
+       ```apacheconf
         wantedUsername ALL=(ALL) ALL
         ```
    1.  To escape from insert mode, type ``esc``-key. Save and quit the editor by typing ``:wq``
    1.  Give your user the permission to ssh to the server by editing ssh deamon configuration:\
         ``# vi /etc/ssh/sshd_config``
    1.  Navigate to the end of the file (e.g. with ``G``-key (captital g)) and add the following line:\
-       ```apache
+       ```apacheconf
         AllowUsers wantedUsername
        ```
    1.  Escape, save and quit.
@@ -91,7 +91,25 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         Substitue the "unixmenuser" with your username "wantedUsername".
    1.  visit: ``http://<ip-address>/~<wantedUsername>/``
 
-1. Install MariaDB server
+1. Install MariaDB server:\
+   ``$ sudo yum install mariadb-server``
+   1. start it:\
+      ``$ sudo systemctl start mariadb``
+   1. secure it:\
+      ``$ mysql_secure_installation``\
+      Note: database root user is not operating system root user! Avoid same password!
+   1. connect to your database:\
+      ``$ mysql -u root -p``
+      * create database and a user with privileges on it:\
+        ```sql
+        > CREATE DATABASE catdb;
+        > CREATE USER 'dbuser' IDENTIFIED BY 'test123';
+        > GRANT USAGE ON *.* TO 'dbuser'@localhost IDENTIFIED BY 'test123';
+        > GRANT ALL ON catdb.* TO 'dbuser'@'localhost';
+        > FLUSH PRIVILEGES;
+        > exit
+        ```
+        (in case you would need outside access (e.g. during project, separate database server from app server), replace ``localhost`` with ``'%'`` in the two GRANT queries).
    1. (In progres....)
 
 ## Install and configure NodeJS
@@ -104,7 +122,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  create/edit an apache configuration file:\
         ``$ sudo vi /etc/httpd/conf.d/node.conf``
    1.  add the following content:
-       ```apache
+       ```apacheconf
        <VirtualHost *:80>
          ProxyPreserveHost On
          ProxyPass /app/ http://127.0.0.1:3000/
