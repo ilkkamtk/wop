@@ -86,21 +86,22 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         ``$ sudo firewall-cmd --reload``
 5. In your browser, open the URL: ``http://<ip-address>/`` (substitute with your IP address). You should see your Apache web server welcome page.
 
-1. The root of your web server is on following path: ``/var/www/html``; but it require root privileges to add/edit/delete files. to create a public_html-folder for your user:
+1. (Optional) The root of your web server is on following path: ``/var/www/html``; but it require root privileges to add/edit/delete files. to create a public_html-folder for your user:
    1.  Follow these steps '[Enable Apache Userdirs](https://www.unixmen.com/linux-basics-enable-apache-userdir-centos-7rhel-7/)'.
         Substitue the "unixmenuser" with your username "wantedUsername".
    1.  visit: ``http://<ip-address>/~<wantedUsername>/``
 
 1. Install MariaDB server:\
    ``$ sudo yum install mariadb-server``
-   1. start it:\
-      ``$ sudo systemctl start mariadb``
-   1. secure it:\
+   1. Start and enable it:\
+      ``$ sudo systemctl start mariadb``\
+      ``$ sudo systemctl enable mariadb``
+   1. Secure it:\
       ``$ mysql_secure_installation``\
       Note: database root user is not operating system root user! Avoid same password!
-   1. connect to your database:\
+   1. Connect to your database:\
       ``$ mysql -u root -p``
-      * create database and a user with privileges on it:\
+      * create a database and a user with privileges on it:\
         ```sql
         > CREATE DATABASE catdb;
         > CREATE USER 'dbuser' IDENTIFIED BY 'test123';
@@ -110,7 +111,18 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         > exit
         ```
         (in case you would need outside access (e.g. during project, separate database server from app server), replace ``localhost`` with ``'%'`` in the two GRANT queries).
-   1. (In progres....)
+   1. Upload with any FTP tool the ``tables.txt`` to your home folder ``/home/wantedUsername``\
+       (or use ``scp`` from your local machine, navigate with terminal to the folder and run ``$ scp tables.txt <wantedUsername>@<ip-address>:~``)
+   1. Import the tables and insert the data:\
+      ``$ mysql -u dbuser -p catdb < tables.txt``
+   1. Eventually check:\
+      ``$ mysql -u dbuser -p catdb``\
+      ```sql
+      > SHOW TABLES;
+      > SELECT * FROM wop_cat;
+      > exit
+      ```
+1. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check e.g. [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-apache-on-a-centos-7-server)
 
 ## Install and configure NodeJS
 
