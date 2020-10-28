@@ -12,7 +12,9 @@
        once connected to metropolia shell, you can connect to your server:\
        ``$ ssh <your-server-username>@<your-server-IP>``
 
-## LAMP (well, P is optional)
+# LAMP (well, P is optional and is replaced with NodeJS)
+
+## Configure Linux server
 
 1. Order your virtual server
    1.  visit [https://educloud.metropolia.fi/](https://educloud.metropolia.fi/)
@@ -74,7 +76,10 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
 2.  The CentOS package manager (to install/update applications and operating system)
     is YUM. For example, to maintain the operating system with the latest bug and security fixes, run the following command about every weeks:\
     ``$ sudo yum update``
-3.  Install apache web server:\
+
+## Install and configure Apache web server
+
+1.  Install apache web server:\
     ``$ sudo yum install httpd``
     1.  start it:\\
         ``$ sudo systemctl start httpd``
@@ -90,6 +95,8 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  Follow these steps '[Enable Apache Userdirs](https://www.unixmen.com/linux-basics-enable-apache-userdir-centos-7rhel-7/)'.
         Substitue the "unixmenuser" with your username "wantedUsername".
    1.  visit: ``http://<ip-address>/~<wantedUsername>/``
+
+## Install and configure MariaDB database server
 
 1. Install MariaDB server:\
    ``$ sudo yum install mariadb-server``
@@ -124,7 +131,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
       ```
 1. (Optional) if you would like to install phpMyAdmin to administrate your databases, tables and data with a graphical user interface, check e.g. [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-apache-on-a-centos-7-server)
 
-## Install and configure NodeJS
+## Install and configure NodeJS application server
 
 1.  Install node for Centos: [https://github.com/nodesource/distributions/blob/master/README.md#rpm](https://github.com/nodesource/distributions/blob/master/README.md#rpm)
     use the # No root privileges version, so something like:\
@@ -156,6 +163,13 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         not)
    1.  install dependencies\
         ``$ npm i``
+   1. create/edit .env file with your db credentials (you set in MariaDB)
+       ```apacheconf
+        DB_HOST=127.0.0.1
+        DB_USER=<your-db-user>
+        DB_PASS=<your-db-user_password>
+        DB_NAME=<your-db-name>
+        ```
    1.  run your application\
         ``$ node app.js``
    1.  test, open a browser and visit ``http://<ip-address>/app/``
