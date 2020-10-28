@@ -30,7 +30,7 @@
    1.  If you are not in metropolia network, use VPN or double ssh (check first section)
    1.  Run the following command:\
         ``$ ssh root@IPaddress``
-   1.  substitute IPaddress with the address of your server (you got in the mail), root is the username (keep it as it is). After pressing enter, it will ask for passowrd (copy/paste from the mail). Note, blind typing password (the cursor will not move nor show stars nor nothing while you type); it a security measure: if anyone look over your shoulders, they cannot guess the lenght of your password.
+   1.  substitute IPaddress with the address of your server (you got in the mail), root is the username (keep it as it is). After pressing enter, it will ask for password (copy/paste from the mail). Note, blind typing password (the cursor will not move nor show stars nor nothing while you type); it a security measure: if anyone look over your shoulders, they cannot guess the length of your password.
 1.  After login: first security measures, change root password and create yourself a user account: avoid
 to do everything as root! If someone crack your root account, s/he can destroy the full server.
 If s/he “only” crack your user account, s/he will be sandboxed (and can do less damages).
@@ -39,7 +39,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  Create user account:\
         ``# useradd wantedUsername``\
         ``# passwd wantedUsername``
-   1.  Give that user sudo (super user do) priviledges:\
+   1.  Give that user sudo (super user do) privileges:\
         ``# visudo``
    1.  Navigate to the line that shows:
        ```apacheconf
@@ -47,7 +47,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         root ALL=(ALL) ALL
         ```
         To move in the text, use arrow keys or ``hjkl`` keys (e.g. to move 92 lines down, press ``92j``).
-   1.  Add a new line and enter in insert mode by typying ``o``-key (notice the INSERT on the last line).
+   1.  Add a new line and enter in insert mode by typing ``o``-key (notice the INSERT on the last line).
         Type
        ```apacheconf
         wantedUsername ALL=(ALL) ALL
@@ -55,7 +55,7 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
    1.  To escape from insert mode, type ``esc``-key. Save and quit the editor by typing ``:wq``
    1.  Give your user the permission to ssh to the server by editing ssh deamon configuration:\
         ``# vi /etc/ssh/sshd_config``
-   1.  Navigate to the end of the file (e.g. with ``G``-key (captital g)) and add the following line:
+   1.  Navigate to the end of the file (e.g. with ``G``-key (capital g)) and add the following line:
        ```apacheconf
         AllowUsers wantedUsername
        ```
@@ -107,8 +107,8 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
       ``$ mysql_secure_installation``\
       Note: database root user is not operating system root user! Avoid same password!
    1. Connect to your database:\
-      ``$ mysql -u root -p``
-      1. create a database and a user with privileges on it:
+      ``$ mysql -u root -p``\
+      and create a database and a user with privileges on it:
         ```sql
         > CREATE DATABASE catdb;
         > CREATE USER 'dbuser' IDENTIFIED BY 'test123';
@@ -159,11 +159,11 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
         ``$ git clone https://gitlab.metropolia.fi/<your-repo>``
    1.  go to the cloned repo\
         ``$ cd <your-repo>``
-   1.  eventually, check that you are in the right branche (checkout if
+   1.  eventually, check that you are in the right branch (checkout if
         not)
    1.  install dependencies\
         ``$ npm i``
-   1. create/edit .env file with your db credentials (you set in MariaDB)
+   1. create/edit .env file with your db credentials (you set in MariaDB, step iii)
        ```apacheconf
         DB_HOST=127.0.0.1
         DB_USER=<your-db-user>
