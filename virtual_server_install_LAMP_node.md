@@ -107,8 +107,8 @@ If s/he “only” crack your user account, s/he will be sandboxed (and can do l
        ```apache
        <VirtualHost *:80>
          ProxyPreserveHost On
-         ProxyPass /app http://127.0.0.1:3000
-         ProxyPassReverse /app http//:127.0.0.1:3000
+         ProxyPass /app/ http://127.0.0.1:3000/
+         ProxyPassReverse /app/ http//:127.0.0.1:3000/
        </VirtualHost>
        ```
 1.   save and restart apache server\
