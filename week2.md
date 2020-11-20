@@ -246,6 +246,19 @@
          * the function should receive _id_ in req.body and send it to deleteCat function of `./models/catModel.js`
       * modify `/:id` route for DELETE method in `./routes/catRoute.js` to call cat_delete function
       * click on a delete-button under the cats to delete a cat in `index2.html`.
+
+1. [Group the routes](https://expressjs.com/en/4x/api.html#router.route) to avoid duplicate route naming and thus typing errors.<br>E.g.
+   ```javascript
+   router.route('/')
+     .get(catController.cat_list_get)
+     .post(/* catController... */)
+     .put(/* catController... */);
+
+   router.route('/:id')
+    .get(/* catController... */)
+    .delete(/* catController... */);
+
+   ```
          
 1. Commit changes and push to GitHub
 
