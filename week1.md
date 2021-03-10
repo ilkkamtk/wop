@@ -22,7 +22,7 @@
      * You don't have to do the exercises (yet)
    * [What files to include in repo?](git.md)
    * Common git commands:
-      * Creating new local repo (first create remote repo in [GitLab group](https://gitlab.metropolia.fi/bcwt-2020) or GitHub etc.)
+      * Creating new local repo (first create remote repo in [GitLab](https://gitlab.metropolia.fi/) or GitHub etc.)
           * `git init` and `git remote add origin https://github.com/user/repo-name.git`
           * Or `git clone https://github.com/user/repo-name.git` (make sure to not be in a folder that is already under version control!)
           * `git add .` (this adds all files, to make sure what will be added check with `git status` first)
