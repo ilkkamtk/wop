@@ -23,8 +23,8 @@
    * [What files to include in repo?](git.md)
    * Common git commands:
       * Creating new local repo (first create remote repo in [GitLab](https://gitlab.metropolia.fi/) or GitHub etc.)
-          * `git init` and `git remote add origin https://github.com/user/repo-name.git`
-          * Or `git clone https://github.com/user/repo-name.git` (make sure to not be in a folder that is already under version control!)
+          * `git init` and `git remote add origin https://gitlab.metropolia.fi/user/repo-name.git`
+          * Or `git clone https://gitlab.metropolia.fi/user/repo-name.git` (make sure to not be in a folder that is already under version control!)
           * `git add .` (this adds all files, to make sure what will be added check with `git status` first)
           * `git commit -m 'some message'`
           * `git push -u origin master`
