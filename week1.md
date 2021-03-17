@@ -12,7 +12,7 @@
     * Some file transfer app like WinSCP, FileZilla or Cyberduck
     * [Node.js](https://nodejs.org/en/) LTS version
        * MacOS no sudo for Mac users
-         - [instructions](https://medium.com/@Mandysidana/using-npm-install-without-sudo-2de6f8a9e1a3)
+         - [instructions](https://johnpapa.net/node-and-npm-without-sudo/)
     * [Git](https://git-scm.com/downloads) for Windows users (or from [git for windows](https://gitforwindows.org/) which comes with git bash)
     * [Metropolia VPN](https://wiki.metropolia.fi/pages/viewpage.action?pageId=149652071)
 
