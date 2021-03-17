@@ -1,7 +1,8 @@
 Include:
 
 - all source code
-- README.md and other documentation
+- README.md and other documentation 
+- license
 - package.json and other settings files
 - .gitignore file: list of local stuff not to be included in the version control ->
        
